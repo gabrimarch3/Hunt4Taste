@@ -5,6 +5,13 @@
     padding: 1.6rem;
 }
 
+.embla1 {
+    --slide-spacing: 1rem;
+    --slide-size: 30%;
+    --slide-height: 11rem;
+    padding: 1.6rem;
+}
+
 .embla__viewport {
     overflow: hidden;
 }
@@ -17,6 +24,13 @@
 }
 
 .embla__slide {
+    flex: 0 0 var(--slide-size);
+    min-width: 0;
+    padding-left: var(--slide-spacing);
+    position: relative;
+}
+
+.embla__slide1 {
     flex: 0 0 var(--slide-size);
     min-width: 0;
     padding-left: var(--slide-spacing);

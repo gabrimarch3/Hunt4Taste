@@ -1,15 +1,16 @@
 import * as React from "react";
 
-import { Card, CardContent } from "../../components/ui/card";
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from "../../components/ui/carousel";
-
+// import { Card, CardContent } from "../../components/ui/card";
+// import {
+//   Carousel,
+//   CarouselContent,
+//   CarouselItem,
+//   CarouselNext,
+//   CarouselPrevious,
+// } from "../../components/ui/carousel";
+import useEmblaCarousel from "embla-carousel-react";
 import "react-loading-skeleton/dist/skeleton.css";
+import '../embla.css'
 import "swiper/css";
 import "swiper/css/pagination";
 
@@ -70,7 +71,9 @@ const services = [
   },
 ];
 
-export default function ServicesSection({ isLoading }) {
+export default function ServicesSection(props) {
+  const { slides, options } = props;
+  const [emblaRef, emblaApi] = useEmblaCarousel(options);
   // return (
   //   <div className="py-10">
   //     <h2 className="text-2xl font-bold text-left mb-5 p-3">SERVIZI</h2>
@@ -103,24 +106,25 @@ export default function ServicesSection({ isLoading }) {
   //   </div>
   // );
     return (
-      <>
-      <h2 className="text-2xl font-bold text-left mb-5 p-3">Servizi</h2>
-      <Carousel className="w-full">
-        <CarouselContent className="-ml-1">
-          {services.map((service) => (
-            <CarouselItem key={service} className="pl-1 min-[300px]:basis-1/2 sm:basis-1/3 md:basis-1/2 lg:basis-1/5 bg-transparent">
-              <div className="p-1 bg-transparent">
-                <Card className='shadow-none border-none'>
-                  <CardContent className="flex flex-col aspect-square items-center justify-center bg-transparent outline-none w-full h-full">
-                    <img src={service.image} alt={service.title} className="rounded-lg"/>
-                    <h3 className="text-lg font-semibold text-gray-300">{service.title}</h3>
-                  </CardContent>
-                </Card>
-              </div>
-            </CarouselItem>
-          ))}
-        </CarouselContent>
-      </Carousel>
-      </>
+      
+      <div className="flex flex-col justify-center items-center w-full">
+        <h3 className=" self-start pt-6 pl-6">Servizi</h3>
+        <div className="embla1">
+          <div className="embla__viewport" ref={emblaRef}>
+            <div className="embla__container">
+              {services.map((service) => (
+                <div className="embla__slide1" key={service.id}>
+                  <img
+                    className="embla__slide__img rounded-xl"
+                    src={service.image}
+                    alt="Your alt text"
+                  />
+                  <p>{service.title}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
     )
   }

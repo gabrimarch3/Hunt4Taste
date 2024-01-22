@@ -7,16 +7,6 @@ import SubscriptionForm from './components/SubscriptionForm';
 import Footer from './components/Footer';
 
 export default function Home() {
-  const [isLoading, setIsLoading] = useState(true);
-
-  useEffect(() => {
-   
-    const timer = setTimeout(() => {
-      setIsLoading(false);
-    }, 300); 
-
-    return () => clearTimeout(timer);
-  }, []);
 
   return (
     <>
