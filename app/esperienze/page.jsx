@@ -9,11 +9,14 @@ export const esperienze = [
     id: 1,
     title: "Assaggi in vigna",
     description:
-      "Questo è un testo utilizzato per descrivere il contenuto della card",
+      "Questo è un testo utilizzato per descrivere il contenuto della card: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
     imageUrl:
       "https://images.pexels.com/photos/1277181/pexels-photo-1277181.jpeg?auto=compress&cs=tinysrgb&w=600",
     buttonText: "Prenota",
-    bookUrl: 'app/esperienze/1'
+    bookUrl: '/esperienze/prenota',
+    location: 'Riccione',
+    duration: 60,
+    cost: 60,
   },
   {
     id: 2,
@@ -23,7 +26,10 @@ export const esperienze = [
     imageUrl:
       "https://images.pexels.com/photos/1277181/pexels-photo-1277181.jpeg?auto=compress&cs=tinysrgb&w=600",
     buttonText: "Prenota",
-    bookUrl: '/esperienze/2'
+    bookUrl: '/esperienze/prenota',
+    location: 'Riccione',
+    duration: 60,
+    cost: 60
   },
   {
     id: 3,
@@ -33,7 +39,10 @@ export const esperienze = [
     imageUrl:
       "https://images.pexels.com/photos/1277181/pexels-photo-1277181.jpeg?auto=compress&cs=tinysrgb&w=600",
     buttonText: "Prenota",
-    bookUrl: ''
+    bookUrl: '',
+    location: 'Riccione',
+    duration: 60,
+    cost: 60
   },
   {
     id: 4,
@@ -43,7 +52,10 @@ export const esperienze = [
     imageUrl:
       "https://images.pexels.com/photos/1277181/pexels-photo-1277181.jpeg?auto=compress&cs=tinysrgb&w=600",
     buttonText: "Prenota",
-    bookUrl: ''
+    bookUrl: '',
+    location: 'Riccione',
+    duration: 60,
+    cost: 60
   },
 ];
 
