@@ -4,7 +4,7 @@ import ExperienceCard from "../components/ExperienceCard";
 import Footer from "../components/Footer";
 import Link from "next/link";
 
-export const esperienze = [
+const esperienze = [
   {
     id: 1,
     title: "Assaggi in vigna",
@@ -60,6 +60,10 @@ export const esperienze = [
 ];
 
 const Esperienze = () => {
+  const truncateDescription = (desc) => {
+    return desc.length > 100 ? desc.substring(0, 100) + '...' : desc;
+  }
+
   return (
     <div className="h-full">
       <NavigationHeader />
@@ -71,11 +75,11 @@ const Esperienze = () => {
           buttonText="Prenota"
         /> */}
         {esperienze.map((esperienza) => (
-          <div className="w-full p-6">
+          <div className="w-full p-6" key={esperienza.id}>
             <Link href={esperienza.bookUrl}>
             <ExperienceCard
-              title={esperienza.title}
-              description={esperienza.description}
+              title={esperienza.title.toUpperCase()}
+              description={truncateDescription(esperienza.description)}
               imageUrl={esperienza.imageUrl}
               buttonText={esperienza.buttonText}
             />

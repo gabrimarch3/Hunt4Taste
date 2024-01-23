@@ -1,6 +1,6 @@
 "use client";
 
-import NavigationHeader from '../components/NavigationHeader'
+import NavigationHeader from "../components/NavigationHeader";
 import * as React from "react";
 import useEmblaCarousel from "embla-carousel-react";
 import "../embla.css";
@@ -35,11 +35,10 @@ const WineHouse = (props) => {
   const [emblaRef, emblaApi] = useEmblaCarousel(options);
 
   return (
-    <div className="h-screen">
-     
-     {/* HEADER DINAMICO */}
-     
-     <NavigationHeader />
+    <div className="h-screen flex flex-col">
+      {/* HEADER DINAMICO */}
+
+      <NavigationHeader />
 
       {/* carosello   */}
 
@@ -73,14 +72,15 @@ const WineHouse = (props) => {
       </div>
 
       {/* SEZIONE IN CANTINA */}
-      <div className="p-6 min-h-30">
+      <div className="pl-6 min-h-30">
+        <h3 className="text-[#7B7C7C]">IN CANTINA</h3>
         <SwiperCards />
       </div>
-      
 
       {/* FOOTER */}
-
-      <Footer />
+      <div className="mt-auto">
+        <Footer />
+      </div>
     </div>
   );
 };

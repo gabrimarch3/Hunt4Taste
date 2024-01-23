@@ -14,7 +14,7 @@ const data = [
   {
     image:
       "https://images.pexels.com/photos/1277181/pexels-photo-1277181.jpeg?auto=compress&cs=tinysrgb&w=600",
-    icon: <FaWineBottle className="text-red-500" size={24} />,
+    icon: <FaWineBottle className="text-[#8B487E]" size={24} />,
     title: "WINE house",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.",
@@ -23,7 +23,7 @@ const data = [
   {
     image:
       "https://images.pexels.com/photos/2954924/pexels-photo-2954924.jpeg?auto=compress&cs=tinysrgb&w=600",
-    icon: <FaWineBottle className="text-red-500" size={24} />,
+    icon: <FaWineBottle className="text-[#8B487E]" size={24} />,
     title: "Esperienze",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.",
@@ -32,7 +32,7 @@ const data = [
   {
     image:
       "https://images.pexels.com/photos/3084603/pexels-photo-3084603.jpeg?auto=compress&cs=tinysrgb&w=600",
-    icon: <FaWineBottle className="text-red-500" size={24} />,
+    icon: <FaWineBottle className="text-[#8B487E]" size={24} />,
     title: "WINE house",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.",
@@ -41,7 +41,7 @@ const data = [
   {
     image:
       "https://images.pexels.com/photos/2855986/pexels-photo-2855986.jpeg?auto=compress&cs=tinysrgb&w=600",
-    icon: <FaWineBottle className="text-red-500" size={24} />,
+    icon: <FaWineBottle className="text-[#8B487E]" size={24} />,
     title: "WINE house",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.",
@@ -50,7 +50,7 @@ const data = [
   {
     image:
       "https://images.pexels.com/photos/19046659/pexels-photo-19046659/free-photo-of-montagne-campo-agricoltura-uva.jpeg?auto=compress&cs=tinysrgb&w=600",
-    icon: <FaWineBottle className="text-red-500" size={24} />,
+    icon: <FaWineBottle className="text-[#8B487E]" size={24} />,
     title: "WINE house",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.",
@@ -59,7 +59,7 @@ const data = [
   {
     image:
       "https://images.pexels.com/photos/8849169/pexels-photo-8849169.jpeg?auto=compress&cs=tinysrgb&w=600",
-    icon: <FaWineBottle className="text-red-500" size={24} />,
+    icon: <FaWineBottle className="text-[#8B487E]" size={24} />,
     title: "WINE house",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.",
@@ -68,7 +68,7 @@ const data = [
   {
     image:
       "https://images.pexels.com/photos/19062971/pexels-photo-19062971/free-photo-of-punto-di-riferimento-collina-italia-agricoltura.jpeg?auto=compress&cs=tinysrgb&w=600",
-    icon: <FaWineBottle className="text-red-500" size={24} />,
+    icon: <FaWineBottle className="text-[#8B487E]" size={24} />,
     title: "WINE house",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.",
@@ -131,11 +131,11 @@ export default function SwiperCards({ isLoading }) {
                 <div className="px-5 py-3 flex-1 flex flex-col justify-between">
                   <div className="flex items-center justify-start space-x-2">
                     <div className="shrink-0">{item.icon}</div>
-                    <h3 className="text-xl font-semibold text-gray-800">
+                    <h3 className="text-xl font-semibold text-[#8B487E]">
                       {item.title}
                     </h3>
                   </div>
-                  <p className="text-gray-600 text-sm text-left mt-2">
+                  <p className="text-[#5D5D5D] text-sm text-left mt-2">
                     {item.description}
                   </p>
                 </div>

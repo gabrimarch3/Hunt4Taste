@@ -19,9 +19,9 @@ const ExperienceCard = ({ title, description, imageUrl, buttonText }) => {
       </div>
       <div className="px-6 py-4">
         <div className="flex justify-between align-center">
-          <div className="font-bold text-xl mb-2">{title}</div>
+          <div className="font-bold text-xl mb-2 text-[#8B487E]">{title}</div>
         </div>
-        <p className="text-gray-700 text-base">{description}</p>
+        <p className="text-[#5D5D5D] text-base">{description}</p>
       </div>
       <div className="px-6 pt-4 pb-2"></div>
     </div>

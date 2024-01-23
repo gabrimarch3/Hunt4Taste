@@ -4,7 +4,7 @@ import Image from "next/image";
 import Footer from "../components/Footer";
 import { FaSearch } from "react-icons/fa";
 import ProductCard from "../components/ProductCard";
-import { Button } from "../../components/ui/button";
+import { Button } from "../../../components/ui/button";
 
 const products = [
   {
