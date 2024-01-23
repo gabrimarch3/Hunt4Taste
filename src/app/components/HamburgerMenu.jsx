@@ -38,8 +38,8 @@ const HamburgerMenu = () => {
 
   return (
     <>
-      <IconButton onClick={toggleDrawer(true)} className="text-white">
-        <GiHamburgerMenu size={24} />
+      <IconButton onClick={toggleDrawer(true)}>
+        <GiHamburgerMenu size={24} fill='white'/>
       </IconButton>
       <Drawer anchor="left" open={open} onClose={toggleDrawer(false)}>
         <Box
