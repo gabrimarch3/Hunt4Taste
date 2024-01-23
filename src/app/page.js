@@ -13,7 +13,7 @@ export default function Home() {
       <Header />
       <div className="pt-10 bg-transparent">
         <h3 className="pl-3 pb-3 font-bold text-[#7B7C7C]">IN CANTINA</h3>
-        <div className="pl-3 overflow-hidden">
+        <div className="pl-3 overflow-hidden max-w-full">
           <SwiperCards />
         </div>
       </div>

@@ -107,7 +107,7 @@ export default function ServicesSection(props) {
   // );
     return (
       
-      <div className="flex flex-col justify-center items-center w-full">
+      <div className="flex flex-col justify-center items-center w-full overflow-hidden">
         <h3 className=" self-start pt-6 pl-3 text-[#7B7C7C] font-bold">SERVIZI</h3>
         <div className="embla1">
           <div className="embla__viewport" ref={emblaRef}>
