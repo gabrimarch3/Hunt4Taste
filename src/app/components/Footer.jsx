@@ -7,15 +7,15 @@ import ForestOutlinedIcon from "@mui/icons-material/ForestOutlined";
 import AppsOutlinedIcon from "@mui/icons-material/AppsOutlined";
 import React from "react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 const Footer = () => {
+  const router = useRouter();
+
   return (
     <div className="sticky bottom-0">
       <BottomNavigation
         showLabels
-        onChange={(event, newValue) => {
-          setValue(newValue);
-        }}
         className="mt-20 flex justify-between sticky bottom-0"
       >
         <Link href="/">
@@ -35,21 +35,25 @@ const Footer = () => {
           label="Eventi"
           icon={<EventOutlinedIcon style={{ color: "#924F85" }} />}
           className="cursor-pointer"
+          onClick={() => router.push('/esperienze')}
         />
         <BottomNavigationAction
           label="Shop"
           icon={<WineBarOutlinedIcon style={{ color: "#924F85" }} />}
           className="cursor-pointer"
+          onClick={() => router.push('/shop')}
         />
         <BottomNavigationAction
           label="Territorio"
           icon={<ForestOutlinedIcon style={{ color: "#924F85" }} />}
           className="cursor-pointer"
+          onClick={() => router.push('/')}
         />
         <BottomNavigationAction
           label="Altro"
           icon={<AppsOutlinedIcon style={{ color: "#924F85" }} />}
           className="cursor-pointer"
+          onClick={() => router.push('/')}
         />
       </BottomNavigation>
     </div>
