@@ -13,7 +13,7 @@ const Footer = () => {
   const router = useRouter();
 
   return (
-    <div className="sticky bottom-0">
+    <div className="sticky bottom-0 z-10">
       <BottomNavigation
         showLabels
         className="mt-20 flex justify-between sticky bottom-0"
