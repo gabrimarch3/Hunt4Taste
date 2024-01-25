@@ -1,4 +1,5 @@
 // components/CartDrawer.js
+'use client';
 import React from "react";
 import Drawer from "@mui/material/Drawer";
 import List from "@mui/material/List";
@@ -9,6 +10,8 @@ import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import CloseIcon from "@mui/icons-material/Close";
 import { useCart } from "../context/CartContex";
 import DeleteIcon from "@mui/icons-material/Delete";
+import { StripeCheckout } from '@stripe/stripe-js';
+import { Button } from "@mui/material";
 
 const CartDrawer = ({ isOpen, toggleDrawer }) => {
   const { cartItems, removeFromCart } = useCart();

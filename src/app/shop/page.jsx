@@ -18,29 +18,41 @@ const products = [
     id: 1,
     name: "Bianchello del metauro",
     imageUrl:
-      "https://images.pexels.com/photos/2912108/pexels-photo-2912108.jpeg?auto=compress&cs=tinysrgb&w=600",
+      "https://s.tannico.it/media/catalog/product/cache/1/small_image/300x300/0dc2d03fe217f8c83829496872af24a0/a/c/achi_2_1.jpg",
     price: 12.99,
   },
   {
     id: 2,
     name: "Superbo Ancestrale 2021",
     imageUrl:
-      "https://images.pexels.com/photos/917831/pexels-photo-917831.jpeg?auto=compress&cs=tinysrgb&w=600",
+      "https://s.tannico.it/media/catalog/product/cache/1/small_image/300x300/0dc2d03fe217f8c83829496872af24a0/t/e/teo_1.jpg",
     price: 15.49,
   },
   {
     id: 3,
     name: "Chianti classico 2020",
     imageUrl:
-      "https://images.pexels.com/photos/2897305/pexels-photo-2897305.jpeg?auto=compress&cs=tinysrgb&w=600",
+      "https://s.tannico.it/media/catalog/product/cache/1/small_image/300x300/0dc2d03fe217f8c83829496872af24a0/a/n/anticoalberello_1_1.jpg",
     price: 18.99,
   },
   {
     id: 4,
-    name: 'Teroldico',
-    imageUrl: 'https://images.pexels.com/photos/3934057/pexels-photo-3934057.jpeg?auto=compress&cs=tinysrgb&w=600',
+    name: 'Teroldico Superiore 2020',
+    imageUrl: 'https://s.tannico.it/media/catalog/product/cache/1/small_image/300x300/0dc2d03fe217f8c83829496872af24a0/b/a/barolopaesi.jpg',
     price: 25,
-  }
+  },
+  {
+    id: 5,
+    name: "Barbera d'Asti superiore",
+    imageUrl: 'https://s.tannico.it/media/catalog/product/cache/1/small_image/300x300/0dc2d03fe217f8c83829496872af24a0/s/c/scrim.jpg',
+    price: 35,
+  },
+  {
+    id: 6,
+    name: "Lacrima di Morro d'Alba superiore",
+    imageUrl: 'https://s.tannico.it/media/catalog/product/cache/1/small_image/300x300/0dc2d03fe217f8c83829496872af24a0/3/k/3k_75cl-in-su_14_2_1.jpg',
+    price: 22.53,
+  },
 ];
 
 const Shop = () => {
