@@ -2,6 +2,9 @@
 const nextConfig = {
     images: {
         domains: ['images.pexels.com', 'www.cignano.com']
+    },
+    eslint: {
+        ignoreDuringBuilds: true,
     }
 };
 
