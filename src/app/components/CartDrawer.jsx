@@ -8,9 +8,10 @@ import IconButton from "@mui/material/IconButton";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import CloseIcon from "@mui/icons-material/Close";
 import { useCart } from "../context/CartContex";
+import DeleteIcon from "@mui/icons-material/Delete";
 
 const CartDrawer = ({ isOpen, toggleDrawer }) => {
-  const { cartItems } = useCart();
+  const { cartItems, removeFromCart } = useCart();
 
   // Stile personalizzato per il drawer
   const drawerStyle = {
@@ -20,12 +21,13 @@ const CartDrawer = ({ isOpen, toggleDrawer }) => {
     paddingBottom: "env(safe-area-inset-bottom)",
   };
 
-//   const total = cartItems.reduce((acc, item) => {
-//     const itemTotal = (item.price || 0) * (item.quantity || 0);
-//     return acc + itemTotal;
-//   }, 0);
+  
+  const total = cartItems.reduce((acc, item) => {
+    const itemTotal = (item.price || 0) * (item.quantity || 0);
+    return acc + itemTotal;
+  }, 0);
 
-//   const formattedTotal = total.tofixed(2);
+  const formattedTotal = total.toFixed(2);
 
   return (
     <Drawer
@@ -72,6 +74,9 @@ const CartDrawer = ({ isOpen, toggleDrawer }) => {
                     }}
                   />
                 </div>
+                <IconButton onClick={() => removeFromCart(item.id)}>
+                <DeleteIcon />
+              </IconButton>
               </ListItem>
             ))
           ) : (
@@ -81,7 +86,7 @@ const CartDrawer = ({ isOpen, toggleDrawer }) => {
           )}
         </List>
         <div className="p-4">
-          <h3 className="text-lg font-semibold">Totale: 55€</h3>
+          <h3 className="text-lg font-semibold">Totale:{formattedTotal}€</h3>
         </div>
       </div>
     </Drawer>
