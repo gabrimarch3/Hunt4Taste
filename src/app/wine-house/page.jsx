@@ -61,7 +61,7 @@ const WineHouse = (props) => {
       </div>
 
       {/* Body della pagina */}
-      <div className="flex flex-col w-full p-6">
+      <div className="flex flex-col w-full p-5">
         <h3 className="text-[#863854] font-bold">WINE House</h3>
         <p className="text-[#5D5D5D] font-semibold">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus
@@ -72,7 +72,7 @@ const WineHouse = (props) => {
       </div>
 
       {/* SEZIONE IN CANTINA */}
-      <div className="pl-6 min-h-30">
+      <div className="pl-5 min-h-30">
         <h3 className="text-[#7B7C7C]">IN CANTINA</h3>
         <SwiperCards />
       </div>
