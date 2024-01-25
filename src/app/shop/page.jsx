@@ -1,10 +1,17 @@
+"use client";
+
 import React from "react";
+import { useState } from "react";
 import NavigationHeader from "../components/NavigationHeader";
 import Image from "next/image";
 import Footer from "../components/Footer";
 import { FaSearch } from "react-icons/fa";
 import ProductCard from "../components/ProductCard";
 import { Button } from "../../../components/ui/button";
+import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
+import CartDrawer from "../components/CartDrawer";
+import { useCart } from "../context/CartContex";
+import { IconButton } from "@mui/material";
 
 const products = [
   {
@@ -12,76 +19,101 @@ const products = [
     name: "Bianchello del metauro",
     imageUrl:
       "https://images.pexels.com/photos/2912108/pexels-photo-2912108.jpeg?auto=compress&cs=tinysrgb&w=600",
+    price: 12.99,
   },
   {
     id: 2,
     name: "Superbo Ancestrale 2021",
     imageUrl:
       "https://images.pexels.com/photos/917831/pexels-photo-917831.jpeg?auto=compress&cs=tinysrgb&w=600",
+    price: 15.49,
   },
   {
     id: 3,
     name: "Chianti classico 2020",
     imageUrl:
       "https://images.pexels.com/photos/2897305/pexels-photo-2897305.jpeg?auto=compress&cs=tinysrgb&w=600",
+    price: 18.99,
   },
+  {
+    id: 4,
+    name: 'Teroldico',
+    imageUrl: 'https://images.pexels.com/photos/3934057/pexels-photo-3934057.jpeg?auto=compress&cs=tinysrgb&w=600',
+    price: 25,
+  }
 ];
 
 const Shop = () => {
+
+  const [searchQuery, setSearchQuery] = useState('');
+
+  const [isCartOpen, setIsCartOpen] = useState(false);
+
+  
+  const { cartItems } = useCart();
+  
+  const itemCount = cartItems.reduce((total, item) => total + item.quantity, 0);
+
+
+  const toggleCartDrawer = (open) => (event) => {
+    if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
+      return;
+    }
+
+    setIsCartOpen(open);
+  };
+
+  const filteredProducts = products.filter(product => 
+    product.name.toLowerCase().includes(searchQuery.toLowerCase())
+  );
+
   return (
     <div className="flex flex-col min-h-screen">
+    
       <NavigationHeader />
-      <div className="flex flex-col flex-grow items-center p-4">
-        <div className="flex space-x-2 mb-4">
-          <div class="max-w-md mx-auto">
-            <div class="relative flex flex-grow items-center w-full h-12 rounded-lg focus-within:shadow-lg bg-white overflow-hidden">
-              <div class="grid place-items-center h-full w-12 text-gray-300">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  class="h-6 w-6"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-                  />
-                </svg>
-              </div>
 
-              <input
-                class="peer h-full w-full outline-none text-sm text-gray-700 pr-2"
-                type="text"
-                id="search"
-                placeholder="Cosa vuoi bere?"
-              />
-            </div>
+      <CartDrawer isOpen={isCartOpen} toggleDrawer={toggleCartDrawer} />
+
+      <div className="flex flex-col flex-grow items-center p-4">
+
+        <div className="flex flex-row justify-between w-screen px-3 mx-auto pl-3 pr-5">
+        
+          <div className="relative flex flex-grow">
+            <input
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)} 
+              placeholder="Cerca prodotto"
+              className="w-full h-12 rounded-lg bg-white text-sm text-gray-700 outline-none px-3" 
+            />
           </div>
+
+          <IconButton onClick={toggleCartDrawer(true)}>
+            <ShoppingCartIcon />
+            {itemCount > 0 && (
+            <span className="absolute top-0 right-0 rounded-full bg-red-600 text-white px-2 py-1 text-xs font-bold">
+              {itemCount}
+            </span>
+          )}
+          </IconButton>
+
         </div>
-        <div></div>
-        <div className="flex space-x-2 mb-4">
-          <Button variant="outline" className="rounded-full">
-            Rossi
-          </Button>
-          <Button variant="outline" className="rounded-full">
-            Bianchi
-          </Button>
-          <Button variant="outline" className="rounded-full">
-            Rosati
-          </Button>
-        </div>
-        <div className="w-full grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-5">
-          {products.map((product) => (
+
+        {filteredProducts.length === 0 && (
+          <p>Nessun prodotto trovato per "{searchQuery}"</p>
+        )}
+
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+          {filteredProducts.map(product => (
             <ProductCard key={product.id} product={product} />
           ))}
         </div>
+
       </div>
+
       <Footer />
+
     </div>
   );
-};
+}
 
 export default Shop;

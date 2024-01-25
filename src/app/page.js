@@ -6,7 +6,6 @@ import SwiperCards from "./components/SwiperCards";
 import SubscriptionForm from "./components/SubscriptionForm";
 import Footer from "./components/Footer";
 
-
 export default function Home() {
   return (
     <>
