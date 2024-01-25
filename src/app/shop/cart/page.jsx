@@ -1,3 +1,4 @@
+'use client';
 import React from 'react';
 import { useCart } from '../../context/CartContex'; // Assicurati di avere il percorso corretto
 
