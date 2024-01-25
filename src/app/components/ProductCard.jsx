@@ -1,14 +1,13 @@
-'use client';
+"use client";
 import React from "react";
 import { useState } from "react";
 import { useCart } from "../context/CartContex";
 import { FaRegHeart } from "react-icons/fa";
 
 const ProductCard = ({ product }) => {
-  const {addToCart} = useCart();
+  const { addToCart } = useCart();
 
   const [added, setAdded] = useState(false);
-
 
   const handleAddToCartClick = () => {
     addToCart(product);
@@ -29,9 +28,13 @@ const ProductCard = ({ product }) => {
           added ? "bg-green-500 hover:bg-green-600" : ""
         }`}
       >
-        {added ? 'Aggiunto al carrello' : product.name}
+        {added ? "Aggiunto al carrello" : product.name}
       </button>
-      <p className="text-sm text-gray-600">{product.description}</p>
+      <div className="text-gray-500 text-sm flex flex-col justify-center items-center w-full mt-2">
+        <span className="font-medium">{product.year}</span>
+
+        <span className="mt-1 font-light">€{product.price}</span>
+      </div>
     </div>
   );
 };
