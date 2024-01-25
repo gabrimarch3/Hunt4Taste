@@ -115,23 +115,23 @@ const Shop = () => {
 
       <CartDrawer isOpen={isCartOpen} toggleDrawer={toggleCartDrawer} />
 
-      <div className="flex flex-col flex-grow items-center p-4">
-        <div className="flex flex-row justify-between w-screen px-3 mx-auto pl-3 pr-5">
+      <div className="flex flex-col flex-grow items-center mt-4">
+        <div className="flex flex-row justify-between w-screen px-3 mx-auto">
           <div className="relative flex flex-grow">
             <input
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              placeholder="Cosa vuoi bere..."
-              className="w-full h-12 rounded-lg bg-white text-sm text-gray-700 outline-none px-3 shadow-xl mb-3"
+              placeholder="   Cosa vuoi bere..."
+              className="w-full h-12 rounded-lg bg-white text-sm text-gray-700 outline-none shadow-xl mb-3"
             />
           </div>
 
           
           <div
-            className={`fixed bottom-0 right-0 mb-24 mr-10 z-30 transition-transform ${
-              isAboveFooter ? "" : "translate-y-[100%]" // Adjust this line as necessary
+            className={`fixed bottom-[70px] right-10 z-30 transition-transform ${
+              isAboveFooter ? "" : "translate-y-[100%]" 
             }`}
-            style={{ transition: "transform 0.3s ease-in-out" }} // Animazione morbida per la transizione
+            style={{ transition: "transform 0.3s ease-in-out" }} 
           >
             <IconButton
               color="primary"

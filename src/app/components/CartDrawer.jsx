@@ -1,4 +1,3 @@
-// components/CartDrawer.js
 "use client";
 import React from "react";
 import Drawer from "@mui/material/Drawer";
@@ -13,12 +12,12 @@ import DeleteIcon from "@mui/icons-material/Delete";
 import { Button } from "@mui/material";
 import { loadStripe } from "@stripe/stripe-js";
 
-
-const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY);
+const stripePromise = loadStripe(
+  process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY
+);
 
 const CartDrawer = ({ isOpen, toggleDrawer }) => {
-  const { cartItems, removeFromCart } = useCart();
-
+  const { cartItems, removeFromCart, updateCartItemQuantity } = useCart();
 
   const drawerStyle = {
     height: "auto",
@@ -33,8 +32,6 @@ const CartDrawer = ({ isOpen, toggleDrawer }) => {
   }, 0);
 
   const formattedTotal = total.toFixed(2);
-
-
 
   const handleCheckout = async () => {
     const stripe = await stripePromise;
@@ -97,11 +94,35 @@ const CartDrawer = ({ isOpen, toggleDrawer }) => {
                   />
                   <ListItemText
                     primary={item.name}
-                    secondary={`Quantità: ${item.quantity}`}
                     primaryTypographyProps={{ className: "font-semibold" }}
-                    secondaryTypographyProps={{
-                      className: "text-sm text-gray-600",
-                    }}
+                    secondary={
+                      <>
+                        Quantità:{" "}
+                        <div className="flex items-center space-x-2">
+                          <button
+                            onClick={() => {
+                              const newQuantity = item.quantity - 1;
+                              if (newQuantity >= 1) {
+                                updateCartItemQuantity(item.id, newQuantity);
+                              }
+                            }}
+                            className="px-2 py-1 bg-gray-200 rounded-full focus:outline-none"
+                          >
+                            -
+                          </button>
+                          <span>{item.quantity}</span>
+                          <button
+                            onClick={() => {
+                              const newQuantity = item.quantity + 1;
+                              updateCartItemQuantity(item.id, newQuantity);
+                            }}
+                            className="px-2 py-1 bg-gray-200 rounded-full focus:outline-none"
+                          >
+                            +
+                          </button>
+                        </div>
+                      </>
+                    }
                   />
                 </div>
                 <IconButton onClick={() => removeFromCart(item.id)}>
@@ -116,7 +137,7 @@ const CartDrawer = ({ isOpen, toggleDrawer }) => {
           )}
         </List>
         <div className="p-4">
-          <h3 className="text-lg font-semibold">Totale:{formattedTotal}€</h3>
+          <h3 className="text-lg font-semibold">Totale: {formattedTotal}€</h3>
           <Button onClick={handleCheckout} variant="contained" color="primary">
             Vai al Checkout
           </Button>
