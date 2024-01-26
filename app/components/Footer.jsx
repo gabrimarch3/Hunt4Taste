@@ -13,8 +13,14 @@ import { useState, useEffect } from "react";
 const Footer = () => {
   const router = useRouter();
   const [installPrompt, setInstallPrompt] = useState(null);
+  const [isIOS, setIsIOS] = useState(false);
 
   useEffect(() => {
+    setIsIOS(
+      /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream
+    );
+
+    // Ascolta l'evento beforeinstallprompt
     window.addEventListener('beforeinstallprompt', (e) => {
       e.preventDefault();
       setInstallPrompt(e);
@@ -22,16 +28,20 @@ const Footer = () => {
   }, []);
 
   const handleInstallClick = () => {
-    if (installPrompt) {
-      installPrompt.prompt();
-      installPrompt.userChoice.then((choiceResult) => {
-        if (choiceResult.outcome === 'accepted') {
-          console.log('L\'utente ha accettato l\'installazione della PWA');
-        } else {
-          console.log('L\'utente ha rifiutato l\'installazione della PWA');
-        }
-        setInstallPrompt(null);
-      });
+    if (isIOS) {
+      alert("Per installare questa app, tocca l'icona di condivisione e poi 'Aggiungi a schermata Home'.");
+    } else {
+      if (installPrompt) {
+        installPrompt.prompt();
+        installPrompt.userChoice.then((choiceResult) => {
+          if (choiceResult.outcome === 'accepted') {
+            console.log('L\'utente ha accettato l\'installazione della PWA');
+          } else {
+            console.log('L\'utente ha rifiutato l\'installazione della PWA');
+          }
+          setInstallPrompt(null);
+        });
+      }
     }
   };
 
