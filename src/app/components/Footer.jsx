@@ -8,9 +8,33 @@ import AppsOutlinedIcon from "@mui/icons-material/AppsOutlined";
 import React from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import { useState, useEffect } from "react";
 
 const Footer = () => {
   const router = useRouter();
+  const [installPrompt, setInstallPrompt] = useState(null);
+
+  useEffect(() => {
+    window.addEventListener('beforeinstallprompt', (e) => {
+      e.preventDefault();
+      setInstallPrompt(e);
+    });
+  }, []);
+
+  const handleInstallClick = () => {
+    if (installPrompt) {
+      installPrompt.prompt();
+      installPrompt.userChoice.then((choiceResult) => {
+        if (choiceResult.outcome === 'accepted') {
+          console.log('L\'utente ha accettato l\'installazione della PWA');
+        } else {
+          console.log('L\'utente ha rifiutato l\'installazione della PWA');
+        }
+        setInstallPrompt(null);
+      });
+    }
+  };
+
 
   return (
     <footer className="sticky bottom-0 z-10">
@@ -53,7 +77,7 @@ const Footer = () => {
           label="Altro"
           icon={<AppsOutlinedIcon style={{ color: "#924F85" }} />}
           className="cursor-pointer"
-          onClick={() => router.push('/')}
+          onClick={handleInstallClick}
         />
       </BottomNavigation>
     </footer>
