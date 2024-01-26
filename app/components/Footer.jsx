@@ -84,7 +84,7 @@ const Footer = () => {
           onClick={() => router.push('/')}
         />
         <BottomNavigationAction
-          label="Altro"
+          label="Installa ora!"
           icon={<AppsOutlinedIcon style={{ color: "#924F85" }} />}
           className="cursor-pointer"
           onClick={handleInstallClick}
