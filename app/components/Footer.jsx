@@ -9,12 +9,14 @@ import React from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState, useEffect } from "react";
+import iOSInstructionsModal from '../components/iOSInstructionModal'; // Assicurati che il percorso sia corretto
 
 const Footer = () => {
   const router = useRouter();
   const [installPrompt, setInstallPrompt] = useState(null);
   const [isIOS, setIsIOS] = useState(false);
   const [isPWAInstalled, setIsPWAInstalled] = useState(false);
+  const [showiOSInstructions, setShowiOSInstructions] = useState(false);
 
   useEffect(() => {
     // Controlla se l'app è in modalità standalone (cioè se è stata installata)
@@ -40,8 +42,8 @@ const Footer = () => {
 
   const handleInstallClick = () => {
     if (isIOS) {
-      // Mostra le istruzioni per aggiungere la PWA alla schermata Home su iOS
-      alert("Per installare questa app, tocca l'icona di condivisione e poi 'Aggiungi a schermata Home'.");
+      // Mostra il modale con le istruzioni per iOS
+      setShowiOSInstructions(true);
     } else {
       // Se c'è un evento di installazione salvato e non siamo su iOS, mostralo
       if (installPrompt) {
@@ -100,13 +102,17 @@ const Footer = () => {
         />
        {!isPWAInstalled && (
           <BottomNavigationAction
-            label="Altro"
+            label="Installa ora!"
             icon={<AppsOutlinedIcon style={{ color: "#924F85" }} />}
             className="cursor-pointer"
             onClick={handleInstallClick}
           />
         )}
       </BottomNavigation>
+      <iOSInstructionsModal 
+        open={showiOSInstructions} 
+        handleClose={() => setShowiOSInstructions(false)} 
+      />
     </footer>
   );
 };
