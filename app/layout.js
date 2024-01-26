@@ -10,6 +10,7 @@ const roboto = Roboto({
 export const metadata = {
   title: "Hunt4Taste",
   description: "La tua cantina a portata di tap!",
+  manifest: '/manifest.json',
 };
 
 export default function RootLayout({ children }) {
