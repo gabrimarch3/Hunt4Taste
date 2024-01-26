@@ -5,7 +5,7 @@ import Image from "next/image";
 import Footer from "../components/Footer";
 import { FaSearch } from "react-icons/fa";
 import ProductCard from "../components/ProductCard";
-import { Button } from "../../../components/ui/button";
+import { Button } from "../../components/ui/button";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import CartDrawer from "../components/CartDrawer";
 import { useCart } from "../context/CartContex";
