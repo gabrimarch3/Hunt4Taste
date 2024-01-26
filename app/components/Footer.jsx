@@ -98,12 +98,14 @@ const Footer = () => {
           className="cursor-pointer"
           onClick={() => router.push('/')}
         />
-        <BottomNavigationAction
-          label="Installa ora!"
-          icon={<AppsOutlinedIcon style={{ color: "#924F85" }} />}
-          className="cursor-pointer"
-          onClick={handleInstallClick}
-        />
+       {!isPWAInstalled && (
+          <BottomNavigationAction
+            label="Altro"
+            icon={<AppsOutlinedIcon style={{ color: "#924F85" }} />}
+            className="cursor-pointer"
+            onClick={handleInstallClick}
+          />
+        )}
       </BottomNavigation>
     </footer>
   );
