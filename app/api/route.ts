@@ -1,5 +1,6 @@
 import Stripe from 'stripe';
 import { NextRequest, NextResponse } from 'next/server';
+import { urlToUrlWithoutFlightMarker } from 'next/dist/client/components/app-router';
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 
@@ -28,9 +29,12 @@ export async function POST(req: NextRequest, res: NextResponse) {
       console.log('Line Items:', lineItems);
 
       const session = await stripe.checkout.sessions.create({
-        payment_method_types: ["card"],
+        payment_method_types: ["card", 'klarna', 'paypal', 'sofort'],
         line_items: lineItems, // Use the lineItems variable
         mode: "payment",
+        shipping_address_collection: {
+          allowed_countries: ["IT", "US", "GB", "CA"],
+        },
         success_url: `${req.headers.get(
           "Origin"
         )}/success?session_id={CHECKOUT_SESSION_ID}`,
