@@ -33,7 +33,7 @@ export async function POST(req: NextRequest, res: NextResponse) {
         mode: "payment",
         success_url: `${req.headers.get(
           "Origin"
-        )}/success?session_id=123456789`,
+        )}/success?session_id={CHECKOUT_SESSION_ID}`,
         cancel_url: `${req.headers.get("Origin")}/cancel`,
       });
 
