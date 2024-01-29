@@ -32,29 +32,32 @@ const CartDrawer = ({ isOpen, toggleDrawer }) => {
   }, 0);
 
   const formattedTotal = total.toFixed(2);
-
   const handleCheckout = async () => {
-    const stripe = await stripePromise;
-    const response = await fetch("api/create-checkout-session", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ cartItems: cartItems }),
-    });
-
-    if (response.ok) {
-      const { sessionId } = await response.json();
-      const result = await stripe.redirectToCheckout({ sessionId });
-
-      if (result.error) {
-        alert(result.error.message);
-        console.log(result.error);
+    try {
+      const stripe = await stripePromise;
+      const response = await fetch("api/", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ cartItems: cartItems }),
+      });
+  
+      if (response.ok) {
+        const { url } = await response.json(); // Ottieni l'URL dal JSON
+  
+        // Esegui il reindirizzamento dell'utente all'URL di pagamento Stripe
+        window.location.href = url;
+      } else {
+        alert("Errore nella creazione della sessione di checkout");
       }
-    } else {
-      alert("Errore nella creazione della sessione di checkout");
+    } catch (error) {
+      console.error("Errore durante il checkout:", error);
+      // Gestisci l'errore qui, ad esempio mostrando un messaggio all'utente
     }
   };
+  
+
 
   return (
     <Drawer
