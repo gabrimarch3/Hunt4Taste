@@ -1,8 +1,17 @@
+'use client'
 import React from 'react'
 import NavigationHeader from '../components/NavigationHeader'
 import Footer from '../components/Footer'
+import { useRouter } from 'next/navigation';
 
 const CancelPayment = () => {
+    const router = useRouter();
+
+    const handleGoHome = () => {
+        router.push("/");
+      };
+      
+
   return (
     <div className="min-h-screen flex flex-col">
       <NavigationHeader title="Pagamento annullato" />
@@ -17,7 +26,7 @@ const CancelPayment = () => {
           per assistenza.
         </p>
 
-        <button className="mt-8 px-4 py-2 bg-[#8B487E] text-white rounded-md hover:bg-purple-600">
+        <button onClick={handleGoHome} className="mt-8 px-4 py-2 bg-[#8B487E] text-white rounded-md hover:bg-purple-600">
           Torna alla home
         </button>
       </main>
