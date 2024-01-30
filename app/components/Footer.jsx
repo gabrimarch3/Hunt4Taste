@@ -61,6 +61,7 @@ const Footer = () => {
       }
     }
   };
+
   const iOSInstructions = (
     <Snackbar
       anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }}
