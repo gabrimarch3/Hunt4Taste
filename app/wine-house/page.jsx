@@ -35,23 +35,20 @@ const WineHouse = (props) => {
   const [emblaRef, emblaApi] = useEmblaCarousel(options);
 
   return (
-    <div className="h-screen flex flex-col">
-      {/* HEADER DINAMICO */}
-
+    <div className="h-screen flex flex-col bg-transparent">
       <NavigationHeader />
 
-      {/* carosello   */}
-
-      <div className="flex justify-center items-center w-full">
-        <div className="embla">
+      {/* Modernized Carousel */}
+      <div className="flex justify-center items-center w-full my-8">
+        <div className="embla shadow-lg rounded-lg overflow-hidden">
           <div className="embla__viewport" ref={emblaRef}>
             <div className="embla__container">
               {images.map((image) => (
                 <div className="embla__slide" key={image.id}>
                   <img
-                    className="embla__slide__img rounded-xl"
+                    className="embla__slide__img rounded-lg transition duration-500 ease-in-out transform hover:scale-105"
                     src={image.imageUrl}
-                    alt="Your alt text"
+                    alt="Wine selection"
                   />
                 </div>
               ))}
@@ -60,10 +57,10 @@ const WineHouse = (props) => {
         </div>
       </div>
 
-      {/* Body della pagina */}
-      <div className="flex flex-col w-full p-5">
-        <h3 className="text-[#863854] font-bold">WINE House</h3>
-        <p className="text-[#5D5D5D] font-semibold">
+      {/* Refined Typography and Spacing */}
+      <div className="flex flex-col w-full px-5 py-3">
+        <h3 className="text-3xl text-[#863854] font-bold mb-3">WINE House</h3>
+        <p className="text-[#5D5D5D] font-medium">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus
           doloribus voluptates, recusandae illum cum veritatis aliquam
           repellendus possimus quas? Cum consectetur in illum amet culpa illo
@@ -71,13 +68,12 @@ const WineHouse = (props) => {
         </p>
       </div>
 
-      {/* SEZIONE IN CANTINA */}
-      <div className="pl-5 min-h-30">
-        <h3 className="text-[#7B7C7C]">IN CANTINA</h3>
+      {/* Enhanced "IN CANTINA" Section */}
+      <div className="pl-5 pt-5 pb-10">
+        <h3 className="text-2xl text-[#7B7C7C] mb-4">IN CANTINA</h3>
         <SwiperCards />
       </div>
 
-      {/* FOOTER */}
       <div className="mt-auto">
         <Footer />
       </div>
