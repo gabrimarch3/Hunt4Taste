@@ -61,7 +61,6 @@ const Footer = () => {
       }
     }
   };
-
   const iOSInstructions = (
     <Snackbar
       anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }}
@@ -74,9 +73,14 @@ const Footer = () => {
           <CloseIcon fontSize="small" />
         </IconButton>
       }
+      sx={{
+        '& .MuiSnackbar-content': {
+          backgroundColor: '#333', // Change this to modify the background color
+          color: '#fff', // Change this to modify the text color
+        },
+      }}
     />
   );
-
 
   return (
     <footer className="sticky bottom-0 z-10">
