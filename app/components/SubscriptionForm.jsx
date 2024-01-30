@@ -22,9 +22,9 @@ export default function SubscriptionForm() {
         <div className='w-full min-h-[200px] p-7 bg-white flex flex-col justify-center shadow-lg rounded-xl'>
             <form action="/" className='h-15 w-full'>
                 <input type="text" className='w-full border-b border-b-[#5D5D5D] bg-transparent text-gray-600 mb-10 font-thin' placeholder='Nome e Cognome' />
-                <div className='flex md:flex-row sm:flex-col sm:gap-3'>
+                <div className='flex flex-col md:flex-row md:ml-0'>
                     <input type="email" className='w-full border-b border-b-[#5D5D5D] bg-transparent text-gray-600 font-thin' placeholder='Email' />
-                    <button type='submit' className='ml-20 text-center font-light bg-[#8B487E] w-full rounded-xl text-white h-10 sm:self-center sm:ml-0 sm:mt-5'>Iscriviti</button>
+                    <button type='submit' className='md:ml-20 mt-5 md:mt-0 text-center font-light bg-[#8B487E] w-full rounded-xl text-white h-10'>Iscriviti</button>
                 </div>
             </form>
         </div>
