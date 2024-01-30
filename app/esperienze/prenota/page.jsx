@@ -1,9 +1,11 @@
+'use client';
 import NavigationHeader from "../../components/NavigationHeader";
 import Footer from "../../components/Footer";
 import { esperienze } from "../page";
 import { FaMapLocationDot, FaRegClock, FaEuroSign } from "react-icons/fa6";
 import Image from "next/image";
 import Link from "next/link";
+import axios from "axios";
 
 const prenotaEsperienza = () => {
   const esperienza = {
@@ -19,6 +21,24 @@ const prenotaEsperienza = () => {
     duration: 60,
     cost: 60,
   };
+
+  const handleBook = async () => {
+    try {
+      const cartItems = [
+        {
+          name: esperienza.title,
+          price: esperienza.cost,
+          quantity: 1, 
+        },
+      ];
+      const response = await axios.post('/api', { cartItems });
+      const { url } = response.data; 
+      window.location = url;
+    } catch (error) {
+      console.error('Error during Stripe Checkout:', error);
+    }
+  };
+
 
   return (
     <div className="min-h-screen flex flex-col">
@@ -59,11 +79,9 @@ const prenotaEsperienza = () => {
         </div>
         <p className="text-gray-700 mb-4">{esperienza.description}</p>
         <div className="flex justify-center mt-4">
-          <Link href="/prenota-ora">
-            <button className="bg-[#8B487E] w-[200px] mt-20 text-white py-2 px-4 rounded-full hover:bg-purple-700 transition duration-300">
+            <button onClick={handleBook} className="bg-[#8B487E] w-[200px] mt-20 text-white py-2 px-4 rounded-full hover:bg-purple-700 transition duration-300">
               {esperienza.buttonText}
             </button>
-          </Link>
         </div>
       </div>
       <Footer />
