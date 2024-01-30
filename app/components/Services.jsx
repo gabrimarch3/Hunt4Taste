@@ -119,7 +119,7 @@ export default function ServicesSection(props) {
                     src={service.image}
                     alt="Your alt text"
                   />
-                  <p>{service.title}</p>
+                  <p className="pt-3 text-[#8B487E]">{service.title.toUpperCase()}</p>
                 </div>
               ))}
             </div>
