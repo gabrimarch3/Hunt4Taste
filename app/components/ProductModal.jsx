@@ -66,6 +66,7 @@ const StyledImage = styled("img")(({ theme }) => ({
   borderRadius: "15px", // Angoli arrotondati per l'immagine
   boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)", // Ombra leggera per l'immagine
   marginBottom: theme.spacing(2),
+  objectFit: 'contain',
   transition: "transform 0.3s", // Transizione fluida per l'hover
   "&:hover": {
     transform: "scale(1.03)", // Leggero ingrandimento al passaggio del mouse
@@ -116,8 +117,8 @@ const ProductModal = ({ isOpen, onClose, product, addToCart }) => {
       </StyledDialogContent>
       <StyledDialogActions>
         {/* Pulsanti per azioni come nell'immagine fornita */}
-        <StyledButton onClick={() => { addToCart(product); onClose(); }} className="bg-purple-600 hover:bg-purple-700">Aggiungi al Carrello</StyledButton>
-        {/* Aggiungi eventuali altri pulsanti se necessario */}
+        <StyledButton onClick={() => { addToCart(product); onClose(); }}>Aggiungi al Carrello</StyledButton>
+        <StyledButton onClick={onClose}>Annulla</StyledButton>
       </StyledDialogActions>
     </StyledDialog>
   );}
