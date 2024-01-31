@@ -94,10 +94,7 @@ const Footer = () => {
   );
 
   return (
-    <footer className="sticky bottom-0 z-10" style={{
-      paddingBottom: 'calc(env(safe-area-inset-bottom) + 10px)',
-      backgroundColor: '#FFF'
-    }}>
+    <footer className="sticky bottom-0 z-10">
       <BottomNavigation
         showLabels
         className="mt-20 flex justify-between sticky bottom-0"
@@ -143,6 +140,15 @@ const Footer = () => {
         )}
       </BottomNavigation>
       {iOSInstructions}
+      <div style={{
+            position: 'absolute',
+            left: 0,
+            right: 0,
+            bottom: 0,
+            height: 'env(safe-area-inset-bottom)',
+            backgroundColor: '#FFF', // Scegli il colore di sfondo che preferisci
+            zIndex: -1
+        }}></div>
     </footer>
   );
 };
