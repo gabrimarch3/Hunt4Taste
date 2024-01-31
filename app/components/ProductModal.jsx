@@ -61,11 +61,19 @@ const StyledButton = styled(Button)(({ theme }) => ({
   transition: "transform 0.2s, background-color 0.3s", // Transizioni fluide
 }));
 
+const StyledImageContainer = styled('div')(({ theme }) => ({
+    display: 'flex', // Usa flexbox per mantenere centrato il contenuto
+    alignItems: 'center', // Allinea l'immagine al centro verticalmente
+    justifyContent: 'center', // Allinea l'immagine al centro orizzontalmente
+    maxWidth: '100%', // Imposta una larghezza massima
+    maxHeight: '500px', // Imposta un'altezza massima per l'immagine
+  }));
+
 const StyledImage = styled("img")(({ theme }) => ({
-  maxWidth: "100%",
+  maxWidth: "300px",
   borderRadius: "15px", // Angoli arrotondati per l'immagine
   boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)", // Ombra leggera per l'immagine
-  marginBottom: theme.spacing(2),
+//   marginBottom: theme.spacing(2),
   objectFit: 'contain',
   transition: "transform 0.3s", // Transizione fluida per l'hover
   "&:hover": {
@@ -79,19 +87,18 @@ const ProductModal = ({ isOpen, onClose, product, addToCart }) => {
   return (
     <StyledDialog open={isOpen} onClose={onClose} aria-labelledby="product-dialog-title" fullWidth maxWidth="md">
       <StyledDialogTitle id="product-dialog-title">
-        {/* Titolo e prezzo come nell'immagine fornita */}
-        <div className="flex justify-between items-center">
-          <h2 className="text-2xl font-semibold">{product.name}</h2>
-          <span className="text-xl font-semibold text-purple-600">{product.price}€</span>
-        </div>
-      </StyledDialogTitle>
+      <div className="flex justify-between items-center flex-col">
+        <h2 className="text-2xl font-semibold text-[#1D0C12]">{product.name}</h2>
+        <span className="text-3xl font-bold text-[#E7C5D2] md:mt-0 self-start">{product.price}€</span>
+      </div>
+    </StyledDialogTitle>
       <StyledDialogContent>
         <div className="md:flex">
-          <div className="md:w-1/2 flex justify-center items-center">
+          <StyledImageContainer className="md:w-1/2">
             {/* Immagine del prodotto */}
             <StyledImage src={product.imageUrl} alt={product.name} className="rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300" />
-          </div>
-          <div className="md:w-1/2 mt-4 md:mt-0 space-y-2">
+          </StyledImageContainer>
+          <div className="md:w-1/2 mt-4 md:mt-0 space-y-2 overflow-auto">
             {/* Dettagli del prodotto */}
             <p className="text-gray-600 font-bold">{product.description}</p>
             {/* Aggiungi qui ulteriori dettagli come annata, gradazione alcolica, etc., seguendo il layout dell'immagine */}
