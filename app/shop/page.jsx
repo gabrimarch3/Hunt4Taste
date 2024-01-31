@@ -16,6 +16,10 @@ import {
   ToggleButtonGroup,
   styled,
 } from "@mui/material";
+import ProductModal from '../components/ProductModal'
+
+
+
 
 const wineCategories = [
   {
@@ -99,8 +103,9 @@ const products = [
   {
     id: 7,
     name: "Rosato Toscana IGT",
-    imageUrl: "https://s.tannico.it/media/catalog/product/cache/1/thumbnail/500x500/0dc2d03fe217f8c83829496872af24a0/r/o/rosatomaz_1_1_1_2_1_1.jpg",
-    price: 13.50,
+    imageUrl:
+      "https://s.tannico.it/media/catalog/product/cache/1/thumbnail/500x500/0dc2d03fe217f8c83829496872af24a0/r/o/rosatomaz_1_1_1_2_1_1.jpg",
+    price: 13.5,
     year: 2020,
     category: "rosati",
     subcategory: "tranquilli",
@@ -108,8 +113,9 @@ const products = [
   {
     id: 8,
     name: "Cerasuolo d'Abruzzo DOC",
-    imageUrl: "https://s.tannico.it/media/catalog/product/cache/1/thumbnail/500x500/0dc2d03fe217f8c83829496872af24a0/2/k/2k_1_7_1_1_1_1.jpg", 
-    price: 15.00,
+    imageUrl:
+      "https://s.tannico.it/media/catalog/product/cache/1/thumbnail/500x500/0dc2d03fe217f8c83829496872af24a0/2/k/2k_1_7_1_1_1_1.jpg",
+    price: 15.0,
     year: 2021,
     category: "rosati",
     subcategory: "frizzanti",
@@ -117,7 +123,8 @@ const products = [
   {
     id: 9,
     name: "Negroamaro Rosato",
-    imageUrl: "https://s.tannico.it/media/catalog/product/cache/1/thumbnail/500x500/0dc2d03fe217f8c83829496872af24a0/c/a/calafuria_7.jpg",
+    imageUrl:
+      "https://s.tannico.it/media/catalog/product/cache/1/thumbnail/500x500/0dc2d03fe217f8c83829496872af24a0/c/a/calafuria_7.jpg",
     price: 10.99,
     year: 2019,
     category: "rosati",
@@ -126,7 +133,8 @@ const products = [
   {
     id: 10,
     name: "Rosato di Merlot",
-    imageUrl: "https://s.tannico.it/media/catalog/product/cache/1/thumbnail/500x500/0dc2d03fe217f8c83829496872af24a0/m/e/merlotrose_stpaul.jpg",
+    imageUrl:
+      "https://s.tannico.it/media/catalog/product/cache/1/thumbnail/500x500/0dc2d03fe217f8c83829496872af24a0/m/e/merlotrose_stpaul.jpg",
     price: 16.49,
     year: 2021,
     category: "rosati",
@@ -135,8 +143,9 @@ const products = [
   {
     id: 11,
     name: "Pinot Nero Rosé",
-    imageUrl: "https://s.tannico.it/media/catalog/product/cache/1/thumbnail/500x500/0dc2d03fe217f8c83829496872af24a0/c/o/cotille_1.jpg",
-    price: 22.00,
+    imageUrl:
+      "https://s.tannico.it/media/catalog/product/cache/1/thumbnail/500x500/0dc2d03fe217f8c83829496872af24a0/c/o/cotille_1.jpg",
+    price: 22.0,
     year: 2020,
     category: "rosati",
     subcategory: "frizzanti",
@@ -144,7 +153,8 @@ const products = [
   {
     id: 12,
     name: "Rosato del Salento",
-    imageUrl: "https://s.tannico.it/media/catalog/product/cache/1/thumbnail/500x500/0dc2d03fe217f8c83829496872af24a0/f/i/fichi_1_1_1_1.jpg",
+    imageUrl:
+      "https://s.tannico.it/media/catalog/product/cache/1/thumbnail/500x500/0dc2d03fe217f8c83829496872af24a0/f/i/fichi_1_1_1_1.jpg",
     price: 18.75,
     year: 2020,
     category: "rosati",
@@ -153,48 +163,53 @@ const products = [
   {
     id: 13,
     name: "Chianti Classico Riserva",
-    imageUrl: "https://s.tannico.it/media/catalog/product/cache/1/thumbnail/500x500/0dc2d03fe217f8c83829496872af24a0/v/i/vicchioagopetri2017_2_1_2_1.jpg",
-    price: 32.50,
+    imageUrl:
+      "https://s.tannico.it/media/catalog/product/cache/1/thumbnail/500x500/0dc2d03fe217f8c83829496872af24a0/v/i/vicchioagopetri2017_2_1_2_1.jpg",
+    price: 32.5,
     year: 2017,
     category: "rossi",
-    subcategory: "tranquilli"
+    subcategory: "tranquilli",
   },
   {
     id: 14,
     name: "Prosecco Superiore",
-    imageUrl: "https://s.tannico.it/media/catalog/product/cache/1/thumbnail/500x500/0dc2d03fe217f8c83829496872af24a0/p/r/prior_2_2_1_1_1.jpg",
+    imageUrl:
+      "https://s.tannico.it/media/catalog/product/cache/1/thumbnail/500x500/0dc2d03fe217f8c83829496872af24a0/p/r/prior_2_2_1_1_1.jpg",
     price: 14.99,
     year: "NV (Non Vintage)",
     category: "bianchi",
-    subcategory: "spumanti"
+    subcategory: "spumanti",
   },
   {
     id: 15,
     name: "Sauvignon Blanc Marlborough",
-    imageUrl: "https://s.tannico.it/media/catalog/product/cache/1/thumbnail/500x500/0dc2d03fe217f8c83829496872af24a0/1/_/1__0003_hpto14_2haut_perron_touraine_sb_grande_1_1_6_1_1_1_1_1_1.jpg",
+    imageUrl:
+      "https://s.tannico.it/media/catalog/product/cache/1/thumbnail/500x500/0dc2d03fe217f8c83829496872af24a0/1/_/1__0003_hpto14_2haut_perron_touraine_sb_grande_1_1_6_1_1_1_1_1_1.jpg",
     price: 21.25,
     year: 2019,
     category: "bianchi",
-    subcategory: "dolci"
+    subcategory: "dolci",
   },
   {
     id: 16,
     name: "Amarone della Valpolicella",
-    imageUrl: "https://s.tannico.it/media/catalog/product/cache/1/thumbnail/500x500/0dc2d03fe217f8c83829496872af24a0/c/o/costasera_9_1_1.jpg",
-    price: 45.00,
+    imageUrl:
+      "https://s.tannico.it/media/catalog/product/cache/1/thumbnail/500x500/0dc2d03fe217f8c83829496872af24a0/c/o/costasera_9_1_1.jpg",
+    price: 45.0,
     year: 2016,
     category: "rossi",
-    subcategory: "tranquilli"
+    subcategory: "tranquilli",
   },
   {
     id: 17,
     name: "Rosé de Provence",
-    imageUrl: "https://s.tannico.it/media/catalog/product/cache/1/thumbnail/500x500/0dc2d03fe217f8c83829496872af24a0/b/a/bandol_1_1_1.jpg",
+    imageUrl:
+      "https://s.tannico.it/media/catalog/product/cache/1/thumbnail/500x500/0dc2d03fe217f8c83829496872af24a0/b/a/bandol_1_1_1.jpg",
     price: 22.95,
     year: 2021,
     category: "rosati",
-    subcategory: "tranquilli"
-  }
+    subcategory: "tranquilli",
+  },
 ];
 
 const Shop = () => {
@@ -204,6 +219,20 @@ const Shop = () => {
   const [isCartOpen, setIsCartOpen] = useState(false);
   const [isAboveFooter, setIsAboveFooter] = useState(true);
   const footerRef = useRef(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedProduct, setSelectedProduct] = useState(null);
+  const { addToCart } = useCart(); 
+
+  const openModalWithProduct = (product) => {
+    setSelectedProduct(product);
+    setIsModalOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+    setSelectedProduct(null);
+  };
+
 
   useEffect(() => {
     const handleScroll = () => {
@@ -221,6 +250,7 @@ const Shop = () => {
 
   const { cartItems } = useCart();
   const itemCount = cartItems.reduce((total, item) => total + item.quantity, 0);
+
 
   const toggleCartDrawer = (open) => (event) => {
     if (
@@ -270,12 +300,12 @@ const Shop = () => {
     margin: theme.spacing(1),
     "&.Mui-selected": {
       color: "#000000",
-      backgroundColor: '#8B487E33',
+      backgroundColor: "#8B487E33",
       "&:hover": {
-        backgroundColor: '#8B487E33',
+        backgroundColor: "#8B487E33",
       },
     },
-    borderRadius: "50px", 
+    borderRadius: "50px",
     padding: theme.spacing(1, 2),
   }));
 
@@ -370,18 +400,29 @@ const Shop = () => {
           </div>
         </div>
 
-        {filteredProducts.length === 0 && (
+        {filteredProducts.length === 0 ? (
           <p>Nessun prodotto trovato per "{searchQuery}"</p>
+        ) : (
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+            {filteredProducts.map((product) => (
+              <ProductCard
+                key={product.id}
+                product={product}
+                onProductClick={openModalWithProduct}
+              />
+            ))}
+          </div>
         )}
-
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
-          {filteredProducts.map((product) => (
-            <ProductCard key={product.id} product={product} />
-          ))}
-        </div>
       </div>
 
       <Footer ref={footerRef} />
+
+      <ProductModal 
+        isOpen={isModalOpen} 
+        onClose={handleCloseModal} 
+        product={selectedProduct} 
+        addToCart={addToCart}
+      />
     </div>
   );
 };
