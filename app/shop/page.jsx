@@ -49,6 +49,10 @@ const products = [
     year: 2021,
     category: "bianchi",
     subcategory: "secchi",
+    description: "Fresco, giovane e luminoso, il Bianchello del Metauro DOC è ambasciatore di pregio di una regione composita, sia in Italia sia all’estero europeo, statunitense e orientale.È un vino che ha saputo evolversi, trasformando la sua semplicità in un tratto distintivo di forza e personalità.",
+    alcol: '17,8%',
+    serviceTemp: 18,
+    pairings: ['Formaggi stagionati', 'Secondi di carne rossa']
   },
   {
     id: 2,
@@ -59,6 +63,10 @@ const products = [
     year: 2021,
     category: "bianchi",
     subcategory: "aromatici",
+    description: "Fresco, giovane e luminoso, il Bianchello del Metauro DOC è ambasciatore di pregio di una regione composita, sia in Italia sia all’estero europeo, statunitense e orientale.È un vino che ha saputo evolversi, trasformando la sua semplicità in un tratto distintivo di forza e personalità.",
+    alcol: '17,8%',
+    serviceTemp: 18,
+    pairings: ['Formaggi stagionati', 'Secondi di carne rossa']
   },
   {
     id: 3,
@@ -69,6 +77,10 @@ const products = [
     year: 2020,
     category: "rossi",
     subcategory: "medi",
+    description: "Fresco, giovane e luminoso, il Bianchello del Metauro DOC è ambasciatore di pregio di una regione composita, sia in Italia sia all’estero europeo, statunitense e orientale.È un vino che ha saputo evolversi, trasformando la sua semplicità in un tratto distintivo di forza e personalità.",
+    alcol: '17,8%',
+    serviceTemp: 18,
+    pairings: ['Formaggi stagionati', 'Secondi di carne rossa']
   },
   {
     id: 4,
@@ -79,6 +91,10 @@ const products = [
     year: 2020,
     category: "rossi",
     subcategory: "leggeri",
+        description: "Fresco, giovane e luminoso, il Bianchello del Metauro DOC è ambasciatore di pregio di una regione composita, sia in Italia sia all’estero europeo, statunitense e orientale.È un vino che ha saputo evolversi, trasformando la sua semplicità in un tratto distintivo di forza e personalità.",
+    alcol: '17,8%',
+    serviceTemp: 18,
+    pairings: ['Formaggi stagionati', 'Secondi di carne rossa']
   },
   {
     id: 5,
@@ -89,6 +105,10 @@ const products = [
     year: 2018,
     category: "rossi",
     subcategory: "corposi",
+        description: "Fresco, giovane e luminoso, il Bianchello del Metauro DOC è ambasciatore di pregio di una regione composita, sia in Italia sia all’estero europeo, statunitense e orientale.È un vino che ha saputo evolversi, trasformando la sua semplicità in un tratto distintivo di forza e personalità.",
+    alcol: '17,8%',
+    serviceTemp: 18,
+    pairings: ['Formaggi stagionati', 'Secondi di carne rossa']
   },
   {
     id: 6,
@@ -99,6 +119,10 @@ const products = [
     year: 2021,
     category: "rossi",
     subcategory: "medi",
+        description: "Fresco, giovane e luminoso, il Bianchello del Metauro DOC è ambasciatore di pregio di una regione composita, sia in Italia sia all’estero europeo, statunitense e orientale.È un vino che ha saputo evolversi, trasformando la sua semplicità in un tratto distintivo di forza e personalità.",
+    alcol: '17,8%',
+    serviceTemp: 18,
+    pairings: ['Formaggi stagionati', 'Secondi di carne rossa']
   },
   {
     id: 7,
@@ -109,6 +133,10 @@ const products = [
     year: 2020,
     category: "rosati",
     subcategory: "tranquilli",
+        description: "Fresco, giovane e luminoso, il Bianchello del Metauro DOC è ambasciatore di pregio di una regione composita, sia in Italia sia all’estero europeo, statunitense e orientale.È un vino che ha saputo evolversi, trasformando la sua semplicità in un tratto distintivo di forza e personalità.",
+    alcol: '17,8%',
+    serviceTemp: 18,
+    pairings: ['Formaggi stagionati', 'Secondi di carne rossa']
   },
   {
     id: 8,
@@ -119,6 +147,10 @@ const products = [
     year: 2021,
     category: "rosati",
     subcategory: "frizzanti",
+        description: "Fresco, giovane e luminoso, il Bianchello del Metauro DOC è ambasciatore di pregio di una regione composita, sia in Italia sia all’estero europeo, statunitense e orientale.È un vino che ha saputo evolversi, trasformando la sua semplicità in un tratto distintivo di forza e personalità.",
+    alcol: '17,8%',
+    serviceTemp: 18,
+    pairings: ['Formaggi stagionati', 'Secondi di carne rossa']
   },
   {
     id: 9,
@@ -129,6 +161,10 @@ const products = [
     year: 2019,
     category: "rosati",
     subcategory: "tranquilli",
+        description: "Fresco, giovane e luminoso, il Bianchello del Metauro DOC è ambasciatore di pregio di una regione composita, sia in Italia sia all’estero europeo, statunitense e orientale.È un vino che ha saputo evolversi, trasformando la sua semplicità in un tratto distintivo di forza e personalità.",
+    alcol: '17,8%',
+    serviceTemp: 18,
+    pairings: ['Formaggi stagionati', 'Secondi di carne rossa']
   },
   {
     id: 10,
@@ -139,6 +175,10 @@ const products = [
     year: 2021,
     category: "rosati",
     subcategory: "tranquilli",
+        description: "Fresco, giovane e luminoso, il Bianchello del Metauro DOC è ambasciatore di pregio di una regione composita, sia in Italia sia all’estero europeo, statunitense e orientale.È un vino che ha saputo evolversi, trasformando la sua semplicità in un tratto distintivo di forza e personalità.",
+    alcol: '17,8%',
+    serviceTemp: 18,
+    pairings: ['Formaggi stagionati', 'Secondi di carne rossa']
   },
   {
     id: 11,
@@ -149,6 +189,10 @@ const products = [
     year: 2020,
     category: "rosati",
     subcategory: "frizzanti",
+        description: "Fresco, giovane e luminoso, il Bianchello del Metauro DOC è ambasciatore di pregio di una regione composita, sia in Italia sia all’estero europeo, statunitense e orientale.È un vino che ha saputo evolversi, trasformando la sua semplicità in un tratto distintivo di forza e personalità.",
+    alcol: '17,8%',
+    serviceTemp: 18,
+    pairings: ['Formaggi stagionati', 'Secondi di carne rossa']
   },
   {
     id: 12,
@@ -159,6 +203,10 @@ const products = [
     year: 2020,
     category: "rosati",
     subcategory: "tranquilli",
+        description: "Fresco, giovane e luminoso, il Bianchello del Metauro DOC è ambasciatore di pregio di una regione composita, sia in Italia sia all’estero europeo, statunitense e orientale.È un vino che ha saputo evolversi, trasformando la sua semplicità in un tratto distintivo di forza e personalità.",
+    alcol: '17,8%',
+    serviceTemp: 18,
+    pairings: ['Formaggi stagionati', 'Secondi di carne rossa']
   },
   {
     id: 13,
@@ -169,6 +217,10 @@ const products = [
     year: 2017,
     category: "rossi",
     subcategory: "tranquilli",
+        description: "Fresco, giovane e luminoso, il Bianchello del Metauro DOC è ambasciatore di pregio di una regione composita, sia in Italia sia all’estero europeo, statunitense e orientale.È un vino che ha saputo evolversi, trasformando la sua semplicità in un tratto distintivo di forza e personalità.",
+    alcol: '17,8%',
+    serviceTemp: 18,
+    pairings: ['Formaggi stagionati', 'Secondi di carne rossa']
   },
   {
     id: 14,
@@ -179,6 +231,10 @@ const products = [
     year: "NV (Non Vintage)",
     category: "bianchi",
     subcategory: "spumanti",
+        description: "Fresco, giovane e luminoso, il Bianchello del Metauro DOC è ambasciatore di pregio di una regione composita, sia in Italia sia all’estero europeo, statunitense e orientale.È un vino che ha saputo evolversi, trasformando la sua semplicità in un tratto distintivo di forza e personalità.",
+    alcol: '17,8%',
+    serviceTemp: 18,
+    pairings: ['Formaggi stagionati', 'Secondi di carne rossa']
   },
   {
     id: 15,
@@ -189,6 +245,10 @@ const products = [
     year: 2019,
     category: "bianchi",
     subcategory: "dolci",
+        description: "Fresco, giovane e luminoso, il Bianchello del Metauro DOC è ambasciatore di pregio di una regione composita, sia in Italia sia all’estero europeo, statunitense e orientale.È un vino che ha saputo evolversi, trasformando la sua semplicità in un tratto distintivo di forza e personalità.",
+    alcol: '17,8%',
+    serviceTemp: 18,
+    pairings: ['Formaggi stagionati', 'Secondi di carne rossa']
   },
   {
     id: 16,
@@ -199,6 +259,10 @@ const products = [
     year: 2016,
     category: "rossi",
     subcategory: "tranquilli",
+        description: "Fresco, giovane e luminoso, il Bianchello del Metauro DOC è ambasciatore di pregio di una regione composita, sia in Italia sia all’estero europeo, statunitense e orientale.È un vino che ha saputo evolversi, trasformando la sua semplicità in un tratto distintivo di forza e personalità.",
+    alcol: '17,8%',
+    serviceTemp: 18,
+    pairings: ['Formaggi stagionati', 'Secondi di carne rossa']
   },
   {
     id: 17,
@@ -209,6 +273,10 @@ const products = [
     year: 2021,
     category: "rosati",
     subcategory: "tranquilli",
+        description: "Fresco, giovane e luminoso, il Bianchello del Metauro DOC è ambasciatore di pregio di una regione composita, sia in Italia sia all’estero europeo, statunitense e orientale.È un vino che ha saputo evolversi, trasformando la sua semplicità in un tratto distintivo di forza e personalità.",
+    alcol: '17,8%',
+    serviceTemp: 18,
+    pairings: ['Formaggi stagionati', 'Secondi di carne rossa']
   },
 ];
 

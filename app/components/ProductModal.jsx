@@ -6,6 +6,12 @@ import DialogContent from "@mui/material/DialogContent";
 import DialogActions from "@mui/material/DialogActions";
 import Button from "@mui/material/Button";
 import { styled } from "@mui/material/styles";
+import { BsCalendar2Date } from "react-icons/bs";
+import { LiaWineBottleSolid, LiaCheeseSolid } from "react-icons/lia";
+import { TbTemperature } from "react-icons/tb";
+
+
+
 
 const StyledDialog = styled(Dialog)(({ theme }) => ({
   "& .MuiPaper-root": {
@@ -33,6 +39,7 @@ const StyledDialogContent = styled(DialogContent)(({ theme }) => ({
   "& p": {
     margin: theme.spacing(1, 0), // Maggiori margini verticali per i paragrafi
   },
+  className: 'p-4 space-y-2 md:space-y-0 md:flex md:space-x-4',
 }));
 
 const StyledDialogActions = styled(DialogActions)(({ theme }) => ({
@@ -43,7 +50,6 @@ const StyledDialogActions = styled(DialogActions)(({ theme }) => ({
 }));
 
 const StyledButton = styled(Button)(({ theme }) => ({
-  backgroundColor: "gray",
   color: "black",
   fontWeight: "bold",
   margin: theme.spacing(1),
@@ -70,35 +76,51 @@ const ProductModal = ({ isOpen, onClose, product, addToCart }) => {
   if (!product) return null;
 
   return (
-    <StyledDialog
-      open={isOpen}
-      onClose={onClose}
-      aria-labelledby="product-dialog-title"
-    >
+    <StyledDialog open={isOpen} onClose={onClose} aria-labelledby="product-dialog-title" fullWidth maxWidth="md">
       <StyledDialogTitle id="product-dialog-title">
-        {product.name}
+        {/* Titolo e prezzo come nell'immagine fornita */}
+        <div className="flex justify-between items-center">
+          <h2 className="text-2xl font-semibold">{product.name}</h2>
+          <span className="text-xl font-semibold text-purple-600">{product.price}€</span>
+        </div>
       </StyledDialogTitle>
-      <StyledDialogContent dividers>
-        <StyledImage src={product.imageUrl} alt={product.name} />
-        <div className="font-bold flex justify-center flex-col items-center">
-          <p>Prezzo: {product.price}€</p>
-          <p>Annata: {product.year}</p>
-          {/* Altre informazioni... */}
+      <StyledDialogContent>
+        <div className="md:flex">
+          <div className="md:w-1/2 flex justify-center items-center">
+            {/* Immagine del prodotto */}
+            <StyledImage src={product.imageUrl} alt={product.name} className="rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300" />
+          </div>
+          <div className="md:w-1/2 mt-4 md:mt-0 space-y-2">
+            {/* Dettagli del prodotto */}
+            <p className="text-gray-600 font-bold">{product.description}</p>
+            {/* Aggiungi qui ulteriori dettagli come annata, gradazione alcolica, etc., seguendo il layout dell'immagine */}
+            <div className="flex items-center gap-2 font-bold">
+            <BsCalendar2Date className="w-6 h-6"/>
+            <p>Annata: {product.year}</p>
+            </div>
+            <div className="flex items-center gap-2 font-bold">
+            <LiaWineBottleSolid className="w-8 h-8"/>
+            <p>Alcol: {product.alcol}</p>
+            </div>
+            <div className="flex items-center gap-2 font-bold">
+            <TbTemperature className="w-8 h-8"/>
+            <p>Temperatura di servizio: {product.serviceTemp}°C</p>
+            </div>
+            <div className="flex items-center gap-2 font-bold">
+            <LiaCheeseSolid className="w-8 h-8"/>
+            <p>Abbinamenti: {product.pairings.join(', ')}</p>
+            </div>
+
+          </div>
         </div>
       </StyledDialogContent>
-      <StyledDialogActions className="flex flex-col justify-center">
-        <StyledButton
-          onClick={() => {
-            addToCart(product);
-            onClose();
-          }}
-        >
-          Aggiungi al Carrello
-        </StyledButton>
-        <StyledButton onClick={onClose}>Chiudi</StyledButton>
+      <StyledDialogActions>
+        {/* Pulsanti per azioni come nell'immagine fornita */}
+        <StyledButton onClick={() => { addToCart(product); onClose(); }} className="bg-purple-600 hover:bg-purple-700">Aggiungi al Carrello</StyledButton>
+        {/* Aggiungi eventuali altri pulsanti se necessario */}
       </StyledDialogActions>
     </StyledDialog>
-  );
-};
+  );}
 
-export default ProductModal;
+
+  export default ProductModal;
