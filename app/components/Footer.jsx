@@ -145,7 +145,7 @@ const Footer = () => {
             left: 0,
             right: 0,
             bottom: 0,
-            height: 'calc(env(safe-area-inset-bottom) + 10px)',
+            height: 'calc(env(safe-area-inset-bottom) + 20px)',
             backgroundColor: '#FFF', // Scegli il colore di sfondo che preferisci
             zIndex: -1
         }}></div>
