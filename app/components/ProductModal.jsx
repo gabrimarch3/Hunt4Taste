@@ -34,6 +34,7 @@ const StyledDialogTitle = styled(DialogTitle)(({ theme }) => ({
 }));
 
 const StyledDialogContent = styled(DialogContent)(({ theme }) => ({
+  marginTop: '15px',  
   padding: theme.spacing(2),
   color: "#444", // Testo più scuro per un contrasto maggiore
   "& p": {

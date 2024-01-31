@@ -76,15 +76,15 @@ const Footer = () => {
       }
       sx={{
         '& .MuiSnackbar-content': {
-          backgroundColor: '#333', // Change this to modify the background color
-          color: '#fff', // Change this to modify the text color
+          backgroundColor: '#333',
+          color: '#fff', 
         },
       }}
     />
   );
 
   return (
-    <footer className="sticky bottom-0 z-10">
+    <footer className="sticky bottom-0 z-10" style={{paddingBottom: 'evn(safe-area-inset-bottom)'}}>
       <BottomNavigation
         showLabels
         className="mt-20 flex justify-between sticky bottom-0"
