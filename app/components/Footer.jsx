@@ -141,7 +141,7 @@ const Footer = () => {
       </BottomNavigation>
       {iOSInstructions}
       <div  style={{
-        height: 'calc(env(safe-area-inset-bottom) + 10px)', // Altezza uguale alla safe area
+        height: 'calc(env(safe-area-inset-bottom) + 17px)', // Altezza uguale alla safe area
         backgroundColor: '#FFF', // Sostituisci #YOUR_COLOR con il colore di sfondo desiderato
       }}></div>
     </footer>
