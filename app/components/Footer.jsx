@@ -94,7 +94,9 @@ const Footer = () => {
   );
 
   return (
-    <footer className="sticky bottom-0 z-10" style={{ paddingBottom: "env(safe-area-inset-bottom)" }}>
+    <footer className="sticky bottom-0 z-10" style={{
+      paddingBottom: 'calc(env(safe-area-inset-bottom) + 10px)',
+    }}>
       <BottomNavigation
         showLabels
         className="mt-20 flex justify-between sticky bottom-0"
