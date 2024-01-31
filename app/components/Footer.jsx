@@ -1,15 +1,20 @@
 "use client";
-import React, { useState, useEffect } from 'react';
-import { useRouter } from 'next/navigation';
-import Link from 'next/link';
-import { BottomNavigation, BottomNavigationAction, Fab, Snackbar } from '@mui/material';
-import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined';
-import EventOutlinedIcon from '@mui/icons-material/EventOutlined';
-import WineBarOutlinedIcon from '@mui/icons-material/WineBarOutlined';
-import ForestOutlinedIcon from '@mui/icons-material/ForestOutlined';
-import AppsOutlinedIcon from '@mui/icons-material/AppsOutlined';
-import CloseIcon from '@mui/icons-material/Close';
-import IconButton from '@mui/material/IconButton';
+import React, { useState, useEffect } from "react";
+import { useRouter } from "next/navigation";
+import Link from "next/link";
+import {
+  BottomNavigation,
+  BottomNavigationAction,
+  Fab,
+  Snackbar,
+} from "@mui/material";
+import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
+import EventOutlinedIcon from "@mui/icons-material/EventOutlined";
+import WineBarOutlinedIcon from "@mui/icons-material/WineBarOutlined";
+import ForestOutlinedIcon from "@mui/icons-material/ForestOutlined";
+import AppsOutlinedIcon from "@mui/icons-material/AppsOutlined";
+import CloseIcon from "@mui/icons-material/Close";
+import IconButton from "@mui/material/IconButton";
 
 const Footer = () => {
   const router = useRouter();
@@ -20,17 +25,17 @@ const Footer = () => {
 
   useEffect(() => {
     // Controlla se l'app è in modalità standalone (cioè se è stata installata)
-    const isStandalone = window.matchMedia('(display-mode: standalone)').matches ||
-                         (window.navigator.standalone) || document.referrer.includes('android-app://');
+    const isStandalone =
+      window.matchMedia("(display-mode: standalone)").matches ||
+      window.navigator.standalone ||
+      document.referrer.includes("android-app://");
     setIsPWAInstalled(isStandalone);
 
     // Controllo per dispositivi iOS
-    setIsIOS(
-      /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream
-    );
+    setIsIOS(/iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream);
 
     // Ascolta l'evento beforeinstallprompt
-    window.addEventListener('beforeinstallprompt', (e) => {
+    window.addEventListener("beforeinstallprompt", (e) => {
       // Impedisci al browser di mostrare il prompt di installazione
       e.preventDefault();
       // Salva l'evento per poterlo attivare più tardi solo se l'app non è già installata
@@ -49,11 +54,11 @@ const Footer = () => {
       if (installPrompt) {
         installPrompt.prompt();
         installPrompt.userChoice.then((choiceResult) => {
-          if (choiceResult.outcome === 'accepted') {
-            console.log('L\'utente ha accettato l\'installazione della PWA');
+          if (choiceResult.outcome === "accepted") {
+            console.log("L'utente ha accettato l'installazione della PWA");
             setIsPWAInstalled(true); // Aggiorna lo stato una volta che l'app è installata
           } else {
-            console.log('L\'utente ha rifiutato l\'installazione della PWA');
+            console.log("L'utente ha rifiutato l'installazione della PWA");
           }
           // Dopo aver gestito l'evento, imposta installPrompt a null
           setInstallPrompt(null);
@@ -64,27 +69,32 @@ const Footer = () => {
 
   const iOSInstructions = (
     <Snackbar
-      anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }}
+      anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
       open={showiOSInstructions}
       autoHideDuration={6000}
       onClose={() => setShowiOSInstructions(false)}
       message="Per installare: tocca icona di condivisione poi 'Aggiungi a schermata Home'"
       action={
-        <IconButton size="small" aria-label="close" color="inherit" onClick={() => setShowiOSInstructions(false)}>
+        <IconButton
+          size="small"
+          aria-label="close"
+          color="inherit"
+          onClick={() => setShowiOSInstructions(false)}
+        >
           <CloseIcon fontSize="small" />
         </IconButton>
       }
       sx={{
-        '& .MuiSnackbar-content': {
-          backgroundColor: '#333',
-          color: '#fff', 
+        "& .MuiSnackbar-content": {
+          backgroundColor: "#333",
+          color: "#fff",
         },
       }}
     />
   );
 
   return (
-    <footer className="sticky bottom-0 z-10" style={{paddingBottom: 'evn(safe-area-inset-bottom)'}}>
+    <footer className="sticky bottom-0 z-10" style={{ paddingBottom: "env(safe-area-inset-bottom)" }}>
       <BottomNavigation
         showLabels
         className="mt-20 flex justify-between sticky bottom-0"
@@ -106,21 +116,21 @@ const Footer = () => {
           label="Eventi"
           icon={<EventOutlinedIcon style={{ color: "#924F85" }} />}
           className="cursor-pointer"
-          onClick={() => router.push('/esperienze')}
+          onClick={() => router.push("/esperienze")}
         />
         <BottomNavigationAction
           label="Shop"
           icon={<WineBarOutlinedIcon style={{ color: "#924F85" }} />}
           className="cursor-pointer"
-          onClick={() => router.push('/shop')}
+          onClick={() => router.push("/shop")}
         />
         <BottomNavigationAction
           label="Territorio"
           icon={<ForestOutlinedIcon style={{ color: "#924F85" }} />}
           className="cursor-pointer"
-          onClick={() => router.push('/')}
+          onClick={() => router.push("/")}
         />
-       {!isPWAInstalled && (
+        {!isPWAInstalled && (
           <BottomNavigationAction
             label="Installa ora"
             icon={<AppsOutlinedIcon style={{ color: "#924F85" }} />}
