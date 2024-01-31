@@ -43,7 +43,7 @@ const StyledDialogActions = styled(DialogActions)(({ theme }) => ({
 }));
 
 const StyledButton = styled(Button)(({ theme }) => ({
-  backgroundColor: "#8B487E",
+  backgroundColor: "gray",
   color: "black",
   fontWeight: "bold",
   margin: theme.spacing(1),
