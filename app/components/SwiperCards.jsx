@@ -88,15 +88,16 @@ export default function SwiperCards({ isLoading }) {
       pagination={{ clickable: true }}
       breakpoints={{
         320: {
-          slidesPerView: 2,
+          slidesPerView: 1.3,
           spaceBetween: 10,
+          height: '218px',
         },
-        640: {
-          slidesPerView: 2,
+        550: {
+          slidesPerView: 2.1,
           spaceBetween: 20,
         },
         768: {
-          slidesPerView: 3,
+          slidesPerView: 2.8,
           spaceBetween: 30,
         },
       }}

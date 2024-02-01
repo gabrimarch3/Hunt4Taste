@@ -74,37 +74,6 @@ const services = [
 export default function ServicesSection(props) {
   const { slides, options } = props;
   const [emblaRef, emblaApi] = useEmblaCarousel(options);
-  // return (
-  //   <div className="py-10">
-  //     <h2 className="text-2xl font-bold text-left mb-5 p-3">SERVIZI</h2>
-  //     <Carousel
-  //       opts={{
-  //         align: "start",
-  //       }}
-  //       className="w-full"
-  //     >
-  //       <CarouselContent className='ml-1'>
-  //         {services.map((service) => (
-  //           <div className="flex">
-  //             <CarouselItem key={service.id} className="flex justify-center flex-col pl-3">
-  //               <Card className="w-70 h-70">
-  //                 <img
-  //                   src={service.image}
-  //                   alt={service.title}
-  //                   className="w-full object-cover"
-  //                   style={{ height: "250px" }}
-  //                 />
-  //               </Card>
-  //             <div className="text-center">
-  //               <h3 className="text-lg font-semibold">{service.title}</h3>
-  //             </div>
-  //             </CarouselItem>
-  //           </div>
-  //         ))}
-  //       </CarouselContent>
-  //     </Carousel>
-  //   </div>
-  // );
     return (
       
       <div className="flex flex-col justify-center items-center w-full overflow-hidden">

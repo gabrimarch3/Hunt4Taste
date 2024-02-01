@@ -140,10 +140,15 @@ const Footer = () => {
         )}
       </BottomNavigation>
       {iOSInstructions}
-      <div  style={{
-        height: 'calc(env(safe-area-inset-bottom) + 17px)', // Altezza uguale alla safe area
-        backgroundColor: '#FFF', // Sostituisci #YOUR_COLOR con il colore di sfondo desiderato
-      }}></div>
+     {isPWAInstalled && (
+      <div
+        style={{
+          height: 'env(safe-area-inset-bottom)', // Altezza uguale alla safe area
+          backgroundColor: '#YOUR_COLOR', // Sostituisci #YOUR_COLOR con il colore di sfondo desiderato
+        }}
+      />
+    )}
+
     </footer>
   );
 };

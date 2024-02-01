@@ -16,6 +16,8 @@ import ContactIcon from '@mui/icons-material/Email'; // Icona esemplificativa pe
 import { GiHamburgerMenu } from 'react-icons/gi';
 import { IoMdClose } from 'react-icons/io'; // Icona per chiudere il menu
 import WineBarIcon from '@mui/icons-material/WineBar';
+import { FaFacebookF, FaInstagram, FaTwitter, FaYoutube } from 'react-icons/fa';
+
 
 const HamburgerMenu = () => {
   const [open, setOpen] = React.useState(false);
@@ -41,34 +43,64 @@ const HamburgerMenu = () => {
       <IconButton onClick={toggleDrawer(true)}>
         <GiHamburgerMenu size={24} fill='white'/>
       </IconButton>
-      <Drawer anchor="left" open={open} onClose={toggleDrawer(false)}>
-        <Box
-          role="presentation"
-          onClick={toggleDrawer(false)}
-          onKeyDown={toggleDrawer(false)}
-          className="w-80" 
+      <Drawer anchor="left" open={open} onClose={toggleDrawer(false)} className='h-full'>
+      <Box
+  role="presentation"
+  onClick={toggleDrawer(false)}
+  onKeyDown={toggleDrawer(false)}
+  className="w-80 flex flex-col h-full" 
+>
+<div className="flex items-center justify-between p-4 bg-[#8B487E] text-white" style={{ position: 'relative', height: '64px' }}>
+  <div style={{ position: 'absolute', top: '100%', left: '50%', transform: 'translate(-50%, -50%)' }}>
+    <img src='https://img.freepik.com/free-vector/wine-logo-template_1195-35.jpg?w=1380&t=st=1705658673~exp=1705659273~hmac=a33f9f1a07c8b9750f6575fb3284c4a3b554fa9a49eb9ad3151e9c9cee30ce37' alt="Hunt for Taste Logo" style={{ maxHeight: '100px', maxWidth: '100px' }} className='rounded-xl' />
+  </div>
+  <IconButton onClick={toggleDrawer(false)} className="text-white">
+    <IoMdClose size={24} />
+  </IconButton>
+</div>
+  <List className='mt-10 text-bold'>
+  {menuItems.map((item, index) => (
+    <ListItem key={index} disablePadding className='w-full'>
+      <Link href={item.href} passHref className='w-full'>
+        <ListItemButton
+          style={{
+            borderRadius: '8px',
+            margin: '5px',
+            padding: '10px',
+            transition: 'background-color 0.3s',
+          }}
+          onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#f0f0f0'}
+          onMouseLeave={(e) => e.currentTarget.style.backgroundColor = 'white'}
+          className='w-full'
         >
-          <div className="flex items-center justify-between p-4 bg-[#8B487E] text-white">
-            <span className="text-2xl font-semibold">Hunt for Taste</span>
-            <IconButton onClick={toggleDrawer(false)} className="text-white">
-              <IoMdClose size={24} />
-            </IconButton>
-          </div>
-          <List>
-            {menuItems.map((item, index) => (
-              <ListItem key={index} disablePadding>
-                <Link href={item.href} passHref>
-                  <ListItemButton>
-                    <ListItemIcon className="text-[#8B487E]">
-                      {item.icon}
-                    </ListItemIcon>
-                    <ListItemText primary={item.text} />
-                  </ListItemButton>
-                </Link>
-              </ListItem>
-            ))}
-          </List>
-        </Box>
+          <ListItemIcon style={{ color: '#8B487E', minWidth: '35px' }}>
+            {item.icon}
+          </ListItemIcon>
+          <ListItemText primary={item.text} style={{ fontWeight: 'bold' }} />
+        </ListItemButton>
+      </Link>
+    </ListItem>
+  ))}
+  </List>
+  {/* Footer Section */}
+  <div className="mt-auto w-full self-end bg-[#8B487E] text-white p-4">
+    <p className="text-lg font-bold text-center mb-4">Seguici sui social!</p>
+    <div className="flex justify-center space-x-4">
+      <a href="https://facebook.com" target="_blank" rel="noreferrer" aria-label="Facebook">
+        <FaFacebookF className="text-white text-2xl hover:text-gray-300" />
+      </a>
+      <a href="https://instagram.com" target="_blank" rel="noreferrer" aria-label="Instagram">
+        <FaInstagram className="text-white text-2xl hover:text-gray-300" />
+      </a>
+      <a href="https://twitter.com" target="_blank" rel="noreferrer" aria-label="Twitter">
+        <FaTwitter className="text-white text-2xl hover:text-gray-300" />
+      </a>
+      <a href="https://youtube.com" target="_blank" rel="noreferrer" aria-label="YouTube">
+        <FaYoutube className="text-white text-2xl hover:text-gray-300" />
+      </a>
+    </div>
+  </div>
+</Box>
       </Drawer>
     </>
   );
