@@ -15,7 +15,7 @@ export default function SubscriptionForm() {
 //   };
 
   return (
-    <div className='form-container flex flex-col p-3'>
+    <div className='form-container flex flex-col p-3 mt-auto'>
         <h2 className='text-gray-500 font-bold text-xl pb-3'>
             RIMANI IN CONTATTO
         </h2>

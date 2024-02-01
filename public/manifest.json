@@ -32,7 +32,7 @@
   "shortcuts": [
     {
       "name": "shop",
-      "start_url": "/shop"
+      "url": "/shop"
     }
   ]
 }

@@ -10,9 +10,18 @@ import * as React from "react";
 // } from "../../components/ui/carousel";
 import useEmblaCarousel from "embla-carousel-react";
 import "react-loading-skeleton/dist/skeleton.css";
-import '../embla.css'
+import "../embla.css";
 import "swiper/css";
 import "swiper/css/pagination";
+import Box from "@mui/material/Box";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Pagination, Scrollbar } from "swiper/modules";
+import { useTheme } from "@mui/material/styles";
+import useMediaQuery from "@mui/material/useMediaQuery";
+import { Grid, Card, CardMedia, CardContent, Typography } from "@mui/material";
+import { FaWineBottle } from "react-icons/fa";
+import Skeleton from "react-loading-skeleton";
+import Link from "next/link";
 
 const services = [
   {
@@ -72,28 +81,123 @@ const services = [
 ];
 
 export default function ServicesSection(props) {
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
   const { slides, options } = props;
   const [emblaRef, emblaApi] = useEmblaCarousel(options);
-    return (
-      
-      <div className="flex flex-col justify-center items-center w-full overflow-hidden">
-        <h3 className="self-start pt-6 pl-3 text-[#7B7C7C] font-bold">SERVIZI</h3>
-        <div className="embla1">
-          <div className="embla__viewport" ref={emblaRef}>
-            <div className="embla__container">
-              {services.map((service) => (
-                <div className="embla__slide1" key={service.id}>
-                  <img
-                    className="embla__slide__img rounded-xl"
-                    src={service.image}
-                    alt="Your alt text"
-                  />
-                  <p className="pt-3 text-[#8B487E]">{service.title.toUpperCase()}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </div>
-    )
-  }
+
+  const styles = {
+    card: {
+      maxWidth: isMobile ? 100 : 130, // 100px on mobile, 130px otherwise
+      margin: "auto",
+    },
+    media: {
+      height: 0,
+      paddingTop: "100%", // Aspect ratio 1:1
+    },
+    title: {
+      textAlign: "center",
+      // Other styling based on your design
+    },
+  };
+
+  return (
+    <Box sx={{ mt: 5, mb: 5, ml: 3 }}>
+      <Typography variant="h6" color="text.secondary" gutterBottom>
+        Servizi
+      </Typography>
+      <Swiper
+        scrollbar={{
+          hide: true,
+        }}
+        className="mySwiper h-full"
+        slidesPerView={1}
+        spaceBetween={30}
+        pagination={{ clickable: true }}
+        breakpoints={{
+          100: {
+            slidesPerView: 2.3,
+            spaceBetween: 20,
+          },
+          320: {
+            slidesPerView: 2.2,
+            spaceBetween: 10,
+            height: "80px",
+          },
+          550: {
+            slidesPerView: 3.2,
+            spaceBetween: 20,
+          },
+          768: {
+            slidesPerView: 3.5,
+            spaceBetween: 30,
+          },
+          900: {
+            slidesPerView: 4,
+            spaceBetween: 20,
+          },
+          1000: {
+            slidesPerView: 7,
+            spaceBetween: 200,
+          },
+          1500: {
+            slidesPerView: 8,
+            spaceBetween: 200,
+          }
+        }}
+        modules={[Scrollbar]}
+      >
+        {services.map((item, index) => (
+          <Box key={index} sx={{ m: 2 }}>
+            <SwiperSlide>
+              <Box
+                sx={{
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center",
+                  bgcolor: "background.paper",
+                  borderRadius: "10px",
+                  overflow: "hidden",
+                  boxShadow: 3,
+                  width: {
+                    xs: 180,
+                    sm: 180,
+                    md: 180,
+                    lg: 200,
+                    xl: 280,
+                  }, // Square size
+                  height: {
+                    xs: 180,
+                    sm: 180, 
+                    md: 180, 
+                    lg: 200, 
+                    xl: 280,
+                  },// Square size
+                }}
+              >
+                <Box
+                  component="img"
+                  sx={{
+                    width: "100%",
+                    height: "100%", // Fill the square
+                    objectFit: "cover", // Maintain aspect ratio
+                  }}
+                  src={item.image}
+                  alt={item.title}
+                />
+              </Box>
+              <Typography
+                variant="subtitle1"
+                color="secondary"
+                sx={{ p: 1, textAlign: "left", width: '100%', color: '#7B7C7C'}}
+              >
+                {item.title.toUpperCase()}
+              </Typography>
+            </SwiperSlide>
+          </Box>
+        ))}
+      </Swiper>
+    </Box>
+  );
+}
+// <p className="pt-3 text-[#8B487E]">{service.title.toUpperCase()}</p>
