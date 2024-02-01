@@ -143,8 +143,8 @@ const Footer = () => {
      {isPWAInstalled && (
       <div
         style={{
-          height: 'env(safe-area-inset-bottom)', // Altezza uguale alla safe area
-          backgroundColor: '#YOUR_COLOR', // Sostituisci #YOUR_COLOR con il colore di sfondo desiderato
+          height: 'calc(env(safe-area-inset-bottom) + 10px)', // Altezza uguale alla safe area
+          backgroundColor: '#FFF', // Sostituisci #YOUR_COLOR con il colore di sfondo desiderato
         }}
       />
     )}
