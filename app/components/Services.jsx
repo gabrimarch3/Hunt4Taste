@@ -130,7 +130,7 @@ export default function ServicesSection(props) {
           },
           768: {
             slidesPerView: 3.5,
-            spaceBetween: 30,
+            spaceBetween: -30,
           },
           900: {
             slidesPerView: 4,
@@ -148,7 +148,7 @@ export default function ServicesSection(props) {
         modules={[Scrollbar]}
       >
         {services.map((item, index) => (
-          <Box key={index} sx={{ m: 2 }}>
+          <Box key={index} sx={{ m: 1 }}>
             <SwiperSlide>
               <Box
                 sx={{
