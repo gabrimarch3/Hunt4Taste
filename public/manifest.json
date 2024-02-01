@@ -29,46 +29,11 @@
             "type": "image/png"
         }
     ],
-    "splash_pages": [
-        {
-            "src": "/splash-1242x2208.png",
-            "sizes": "1242x2208",
-            "type": "image/png"
-        },
-        {
-            "src": "/splash-1125x2436.png",
-            "sizes": "1125x2436",
-            "type": "image/png" 
-        },
-        {
-            "src": "/splash-828x1792.png",
-            "sizes": "828x1792",
-            "type": "image/png"
-        },
-        {
-            "src": "/splash-1242x2688.png",
-            "sizes": "1242x2688",
-            "type": "image/png"
-        },
-        {
-            "src": "/splash-1536x2048.png",
-            "sizes": "1536x2048",
-            "type": "image/png" 
-        },
-        {
-            "src": "/splash-1668x2224.png",
-            "sizes": "1668x2224",
-            "type": "image/png"
-        },
-        {
-            "src": "/splash-1668x2388.png",
-            "sizes": "1668x2388",
-            "type": "image/png"
-        },
-        {
-            "src": "/splash-2048x2732.png",
-            "sizes": "2048x2732",
-            "type": "image/png"
+    "shortcuts": 
+        [{
+            "name": "shop",
+            "startUrl": "/shop"
         }
     ]
+    
 }
