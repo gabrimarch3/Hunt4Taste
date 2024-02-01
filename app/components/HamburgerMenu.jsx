@@ -50,7 +50,7 @@ const HamburgerMenu = () => {
   onKeyDown={toggleDrawer(false)}
   className="w-80 flex flex-col h-full" 
 >
-<div className="flex items-center justify-between p-4 bg-[#8B487E] text-white" style={{ position: 'relative', height: '64px' }}>
+<div className="flex items-center justify-between p-4 bg-[#924F85] text-white" style={{ position: 'relative', height: '64px' }}>
   <div style={{ position: 'absolute', top: '100%', left: '50%', transform: 'translate(-50%, -50%)' }}>
     <img src='https://img.freepik.com/free-vector/wine-logo-template_1195-35.jpg?w=1380&t=st=1705658673~exp=1705659273~hmac=a33f9f1a07c8b9750f6575fb3284c4a3b554fa9a49eb9ad3151e9c9cee30ce37' alt="Hunt for Taste Logo" style={{ maxHeight: '100px', maxWidth: '100px' }} className='rounded-xl' />
   </div>
@@ -82,7 +82,7 @@ const HamburgerMenu = () => {
   ))}
   </List>
   {/* Footer Section */}
-  <div className="mt-auto w-full self-end bg-[#8B487E] text-white p-4">
+  <div className="mt-auto w-full self-end bg-[#924F85] text-white p-4">
     <p className="text-lg font-bold text-center mb-4">Seguici sui social!</p>
     <div className="flex justify-center space-x-4">
       <a href="https://facebook.com" target="_blank" rel="noreferrer" aria-label="Facebook">

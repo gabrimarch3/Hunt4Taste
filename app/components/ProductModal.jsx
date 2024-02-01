@@ -24,7 +24,7 @@ const StyledDialog = styled(Dialog)(({ theme }) => ({
 }));
 
 const StyledDialogTitle = styled(DialogTitle)(({ theme }) => ({
-  background: "linear-gradient(45deg, #863854 30%, #a2568c 80%)", // Gradiente per l'header
+  background: "#8B487E", // Gradiente per l'header
   color: "white",
   padding: theme.spacing(2),
   display: "flex",
@@ -51,7 +51,7 @@ const StyledDialogActions = styled(DialogActions)(({ theme }) => ({
 }));
 
 const StyledButton = styled(Button)(({ theme }) => ({
-  color: "black",
+  color: "#8B487E",
   fontWeight: "bold",
   margin: theme.spacing(1),
   "&:hover": {
@@ -89,8 +89,8 @@ const ProductModal = ({ isOpen, onClose, product, addToCart }) => {
     <StyledDialog open={isOpen} onClose={onClose} aria-labelledby="product-dialog-title" fullWidth maxWidth="md">
       <StyledDialogTitle id="product-dialog-title">
       <div className="flex justify-between items-center flex-col">
-        <h2 className="text-2xl font-semibold text-[#1D0C12]">{product.name}</h2>
-        <span className="text-3xl font-bold text-[#E7C5D2] md:mt-0 self-start">{product.price}€</span>
+        <h2 className="text-2xl font-light text-[#ffffff]">{product.name}</h2>
+        <span className="text-3xl font-light text-[#ffffff] md:mt-0 self-start">{product.price}€</span>
       </div>
     </StyledDialogTitle>
       <StyledDialogContent>
@@ -101,21 +101,21 @@ const ProductModal = ({ isOpen, onClose, product, addToCart }) => {
           </StyledImageContainer>
           <div className="md:w-1/2 mt-4 md:mt-0 space-y-2 overflow-auto">
             {/* Dettagli del prodotto */}
-            <p className="text-gray-600 font-bold">{product.description}</p>
+            <p className="text-gray-600 font-light">{product.description}</p>
             {/* Aggiungi qui ulteriori dettagli come annata, gradazione alcolica, etc., seguendo il layout dell'immagine */}
-            <div className="flex items-center gap-2 font-bold">
-            <BsCalendar2Date className="w-6 h-6"/>
+            <div className="flex items-center gap-2 font-light">
+            <BsCalendar2Date className="w-8 h-8"/>
             <p>Annata: {product.year}</p>
             </div>
-            <div className="flex items-center gap-2 font-bold">
+            <div className="flex items-center gap-2 font-light">
             <LiaWineBottleSolid className="w-8 h-8"/>
             <p>Alcol: {product.alcol}</p>
             </div>
-            <div className="flex items-center gap-2 font-bold">
+            <div className="flex items-center gap-2 font-light">
             <TbTemperature className="w-8 h-8"/>
             <p>Temperatura di servizio: {product.serviceTemp}°C</p>
             </div>
-            <div className="flex items-center gap-2 font-bold">
+            <div className="flex items-center gap-2 font-light">
             <LiaCheeseSolid className="w-8 h-8"/>
             <p>Abbinamenti: {product.pairings.join(', ')}</p>
             </div>
@@ -126,7 +126,7 @@ const ProductModal = ({ isOpen, onClose, product, addToCart }) => {
       <StyledDialogActions>
         {/* Pulsanti per azioni come nell'immagine fornita */}
         <StyledButton onClick={() => { addToCart(product); onClose(); }}>Aggiungi al Carrello</StyledButton>
-        <StyledButton onClick={onClose}>Annulla</StyledButton>
+        <StyledButton onClick={onClose}>Chiudi</StyledButton>
       </StyledDialogActions>
     </StyledDialog>
   );}
