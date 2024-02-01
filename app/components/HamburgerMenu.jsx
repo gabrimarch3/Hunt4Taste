@@ -65,7 +65,6 @@ const HamburgerMenu = () => {
         <ListItemButton
           style={{
             borderRadius: '8px',
-            margin: '5px',
             padding: '10px',
             transition: 'background-color 0.3s',
           }}
