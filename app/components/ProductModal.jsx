@@ -163,7 +163,7 @@ const ProductModal = ({ isOpen, onClose, product, addToCart }) => {
           style={{
             backgroundColor: "#c5b473",
             color: "white",
-            width: "100%",
+            width: "80%",
             boxShadow: "0 2px 5px rgba(0, 0, 0, 0.3)",
             zIndex: 20,
           }}
