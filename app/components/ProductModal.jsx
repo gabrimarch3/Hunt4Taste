@@ -160,11 +160,18 @@ const ProductModal = ({ isOpen, onClose, product, addToCart }) => {
       </StyledDialogContent>
       <StyledDialogActions>
         <StyledButton
+          style={{
+            backgroundColor: "#c5b473",
+            color: "white",
+            width: "100%",
+            boxShadow: "0 2px 5px rgba(0, 0, 0, 0.3)",
+            zIndex: 20,
+          }}
           onClick={() => {
             addToCart(product);
             onClose();
           }}
-          className="bg-[#c5b473] rounded-xl text-white"
+          className="rounded-xl"
         >
           Aggiungi al Carrello
         </StyledButton>

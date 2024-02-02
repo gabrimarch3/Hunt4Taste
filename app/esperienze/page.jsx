@@ -83,15 +83,15 @@ const Esperienze = () => {
               />
             </div>
             <div className="flex-1 bg-white p-6 flex flex-col justify-between">
-              <h3 className="text-gray-900 text-xl font-semibold">
+              <h3 className="text-gray-900 text-xl font-semibold mb-3">
                 {esperienza.title}
               </h3>
               <p className="text-gray-600 text-sm flex-1">
                 {truncateDescription(esperienza.description)}
               </p>
-              <div className="mt-6">
+              <div className="mt-6 flex justify-end">
                 <Link legacyBehavior href={esperienza.bookUrl}>
-                  <a className="text-indigo-600 hover:text-indigo-900 font-semibold text-sm transition-colors duration-300">
+                  <a className="text-white hover:text-indigo-900 font-semibold text-sm transition-colors duration-300 bg-[#8B487E] rounded-full py-2 px-4">
                     {esperienza.buttonText}
                   </a>
                 </Link>
