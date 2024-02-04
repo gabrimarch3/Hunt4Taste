@@ -121,7 +121,7 @@ export default function ServicesSection(props) {
           },
           320: {
             slidesPerView: 2.2,
-            spaceBetween: 10,
+            spaceBetween: 60,
             height: "80px",
           },
           550: {
@@ -137,7 +137,7 @@ export default function ServicesSection(props) {
             spaceBetween: 20,
           },
           1000: {
-            slidesPerView: 7,
+            slidesPerView: 6,
             spaceBetween: 200,
           },
           1500: {
