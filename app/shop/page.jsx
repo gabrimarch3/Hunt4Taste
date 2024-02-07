@@ -1,4 +1,4 @@
-"use client";
+'use client'
 import React, { useState, useEffect, useRef } from "react";
 import NavigationHeader from "../components/NavigationHeader";
 import Image from "next/image";
@@ -18,9 +18,6 @@ import {
 } from "@mui/material";
 import ProductModal from '../components/ProductModal'
 
-
-
-
 const wineCategories = [
   {
     label: "Vini Rossi",
@@ -39,247 +36,6 @@ const wineCategories = [
   },
 ];
 
-const products = [
-  {
-    id: 1,
-    name: "Bianchello del metauro",
-    imageUrl:
-      "https://s.tannico.it/media/catalog/product/cache/1/small_image/300x300/0dc2d03fe217f8c83829496872af24a0/a/c/achi_2_1.jpg",
-    price: 12.99,
-    year: 2021,
-    category: "bianchi",
-    subcategory: "secchi",
-    description: "Fresco, giovane e luminoso, il Bianchello del Metauro DOC è ambasciatore di pregio di una regione composita, sia in Italia sia all’estero europeo, statunitense e orientale.È un vino che ha saputo evolversi, trasformando la sua semplicità in un tratto distintivo di forza e personalità.",
-    alcol: '17,8%',
-    serviceTemp: 18,
-    pairings: ['Formaggi stagionati', 'Secondi di carne rossa']
-  },
-  {
-    id: 2,
-    name: "Superbo Ancestrale 2021",
-    imageUrl:
-      "https://s.tannico.it/media/catalog/product/cache/1/small_image/300x300/0dc2d03fe217f8c83829496872af24a0/t/e/teo_1.jpg",
-    price: 15.49,
-    year: 2021,
-    category: "bianchi",
-    subcategory: "aromatici",
-    description: "Fresco, giovane e luminoso, il Bianchello del Metauro DOC è ambasciatore di pregio di una regione composita, sia in Italia sia all’estero europeo, statunitense e orientale.È un vino che ha saputo evolversi, trasformando la sua semplicità in un tratto distintivo di forza e personalità.",
-    alcol: '17,8%',
-    serviceTemp: 18,
-    pairings: ['Formaggi stagionati', 'Secondi di carne rossa']
-  },
-  {
-    id: 3,
-    name: "Chianti classico 2020",
-    imageUrl:
-      "https://s.tannico.it/media/catalog/product/cache/1/small_image/300x300/0dc2d03fe217f8c83829496872af24a0/a/n/anticoalberello_1_1.jpg",
-    price: 18.99,
-    year: 2020,
-    category: "rossi",
-    subcategory: "medi",
-    description: "Fresco, giovane e luminoso, il Bianchello del Metauro DOC è ambasciatore di pregio di una regione composita, sia in Italia sia all’estero europeo, statunitense e orientale.È un vino che ha saputo evolversi, trasformando la sua semplicità in un tratto distintivo di forza e personalità.",
-    alcol: '17,8%',
-    serviceTemp: 18,
-    pairings: ['Formaggi stagionati', 'Secondi di carne rossa']
-  },
-  {
-    id: 4,
-    name: "Teroldego Superiore 2020",
-    imageUrl:
-      "https://s.tannico.it/media/catalog/product/cache/1/small_image/300x300/0dc2d03fe217f8c83829496872af24a0/b/a/barolopaesi.jpg",
-    price: 25,
-    year: 2020,
-    category: "rossi",
-    subcategory: "leggeri",
-        description: "Fresco, giovane e luminoso, il Bianchello del Metauro DOC è ambasciatore di pregio di una regione composita, sia in Italia sia all’estero europeo, statunitense e orientale.È un vino che ha saputo evolversi, trasformando la sua semplicità in un tratto distintivo di forza e personalità.",
-    alcol: '17,8%',
-    serviceTemp: 18,
-    pairings: ['Formaggi stagionati', 'Secondi di carne rossa']
-  },
-  {
-    id: 5,
-    name: "Barbera d'Asti superiore",
-    imageUrl:
-      "https://s.tannico.it/media/catalog/product/cache/1/small_image/300x300/0dc2d03fe217f8c83829496872af24a0/s/c/scrim.jpg",
-    price: 35,
-    year: 2018,
-    category: "rossi",
-    subcategory: "corposi",
-        description: "Fresco, giovane e luminoso, il Bianchello del Metauro DOC è ambasciatore di pregio di una regione composita, sia in Italia sia all’estero europeo, statunitense e orientale.È un vino che ha saputo evolversi, trasformando la sua semplicità in un tratto distintivo di forza e personalità.",
-    alcol: '17,8%',
-    serviceTemp: 18,
-    pairings: ['Formaggi stagionati', 'Secondi di carne rossa']
-  },
-  {
-    id: 6,
-    name: "Lacrima di Morro d'Alba superiore",
-    imageUrl:
-      "https://s.tannico.it/media/catalog/product/cache/1/small_image/300x300/0dc2d03fe217f8c83829496872af24a0/3/k/3k_75cl-in-su_14_2_1.jpg",
-    price: 22.53,
-    year: 2021,
-    category: "rossi",
-    subcategory: "medi",
-        description: "Fresco, giovane e luminoso, il Bianchello del Metauro DOC è ambasciatore di pregio di una regione composita, sia in Italia sia all’estero europeo, statunitense e orientale.È un vino che ha saputo evolversi, trasformando la sua semplicità in un tratto distintivo di forza e personalità.",
-    alcol: '17,8%',
-    serviceTemp: 18,
-    pairings: ['Formaggi stagionati', 'Secondi di carne rossa']
-  },
-  {
-    id: 7,
-    name: "Rosato Toscana IGT",
-    imageUrl:
-      "https://s.tannico.it/media/catalog/product/cache/1/thumbnail/500x500/0dc2d03fe217f8c83829496872af24a0/r/o/rosatomaz_1_1_1_2_1_1.jpg",
-    price: 13.5,
-    year: 2020,
-    category: "rosati",
-    subcategory: "tranquilli",
-        description: "Fresco, giovane e luminoso, il Bianchello del Metauro DOC è ambasciatore di pregio di una regione composita, sia in Italia sia all’estero europeo, statunitense e orientale.È un vino che ha saputo evolversi, trasformando la sua semplicità in un tratto distintivo di forza e personalità.",
-    alcol: '17,8%',
-    serviceTemp: 18,
-    pairings: ['Formaggi stagionati', 'Secondi di carne rossa']
-  },
-  {
-    id: 8,
-    name: "Cerasuolo d'Abruzzo DOC",
-    imageUrl:
-      "https://s.tannico.it/media/catalog/product/cache/1/thumbnail/500x500/0dc2d03fe217f8c83829496872af24a0/2/k/2k_1_7_1_1_1_1.jpg",
-    price: 15.0,
-    year: 2021,
-    category: "rosati",
-    subcategory: "frizzanti",
-        description: "Fresco, giovane e luminoso, il Bianchello del Metauro DOC è ambasciatore di pregio di una regione composita, sia in Italia sia all’estero europeo, statunitense e orientale.È un vino che ha saputo evolversi, trasformando la sua semplicità in un tratto distintivo di forza e personalità.",
-    alcol: '17,8%',
-    serviceTemp: 18,
-    pairings: ['Formaggi stagionati', 'Secondi di carne rossa']
-  },
-  {
-    id: 9,
-    name: "Negroamaro Rosato",
-    imageUrl:
-      "https://s.tannico.it/media/catalog/product/cache/1/thumbnail/500x500/0dc2d03fe217f8c83829496872af24a0/c/a/calafuria_7.jpg",
-    price: 10.99,
-    year: 2019,
-    category: "rosati",
-    subcategory: "tranquilli",
-        description: "Fresco, giovane e luminoso, il Bianchello del Metauro DOC è ambasciatore di pregio di una regione composita, sia in Italia sia all’estero europeo, statunitense e orientale.È un vino che ha saputo evolversi, trasformando la sua semplicità in un tratto distintivo di forza e personalità.",
-    alcol: '17,8%',
-    serviceTemp: 18,
-    pairings: ['Formaggi stagionati', 'Secondi di carne rossa']
-  },
-  {
-    id: 10,
-    name: "Rosato di Merlot",
-    imageUrl:
-      "https://s.tannico.it/media/catalog/product/cache/1/thumbnail/500x500/0dc2d03fe217f8c83829496872af24a0/m/e/merlotrose_stpaul.jpg",
-    price: 16.49,
-    year: 2021,
-    category: "rosati",
-    subcategory: "tranquilli",
-        description: "Fresco, giovane e luminoso, il Bianchello del Metauro DOC è ambasciatore di pregio di una regione composita, sia in Italia sia all’estero europeo, statunitense e orientale.È un vino che ha saputo evolversi, trasformando la sua semplicità in un tratto distintivo di forza e personalità.",
-    alcol: '17,8%',
-    serviceTemp: 18,
-    pairings: ['Formaggi stagionati', 'Secondi di carne rossa']
-  },
-  {
-    id: 11,
-    name: "Pinot Nero Rosé",
-    imageUrl:
-      "https://s.tannico.it/media/catalog/product/cache/1/thumbnail/500x500/0dc2d03fe217f8c83829496872af24a0/c/o/cotille_1.jpg",
-    price: 22.0,
-    year: 2020,
-    category: "rosati",
-    subcategory: "frizzanti",
-        description: "Fresco, giovane e luminoso, il Bianchello del Metauro DOC è ambasciatore di pregio di una regione composita, sia in Italia sia all’estero europeo, statunitense e orientale.È un vino che ha saputo evolversi, trasformando la sua semplicità in un tratto distintivo di forza e personalità.",
-    alcol: '17,8%',
-    serviceTemp: 18,
-    pairings: ['Formaggi stagionati', 'Secondi di carne rossa']
-  },
-  {
-    id: 12,
-    name: "Rosato del Salento",
-    imageUrl:
-      "https://s.tannico.it/media/catalog/product/cache/1/thumbnail/500x500/0dc2d03fe217f8c83829496872af24a0/f/i/fichi_1_1_1_1.jpg",
-    price: 18.75,
-    year: 2020,
-    category: "rosati",
-    subcategory: "tranquilli",
-        description: "Fresco, giovane e luminoso, il Bianchello del Metauro DOC è ambasciatore di pregio di una regione composita, sia in Italia sia all’estero europeo, statunitense e orientale.È un vino che ha saputo evolversi, trasformando la sua semplicità in un tratto distintivo di forza e personalità.",
-    alcol: '17,8%',
-    serviceTemp: 18,
-    pairings: ['Formaggi stagionati', 'Secondi di carne rossa']
-  },
-  {
-    id: 13,
-    name: "Chianti Classico Riserva",
-    imageUrl:
-      "https://s.tannico.it/media/catalog/product/cache/1/thumbnail/500x500/0dc2d03fe217f8c83829496872af24a0/v/i/vicchioagopetri2017_2_1_2_1.jpg",
-    price: 32.5,
-    year: 2017,
-    category: "rossi",
-    subcategory: "tranquilli",
-        description: "Fresco, giovane e luminoso, il Bianchello del Metauro DOC è ambasciatore di pregio di una regione composita, sia in Italia sia all’estero europeo, statunitense e orientale.È un vino che ha saputo evolversi, trasformando la sua semplicità in un tratto distintivo di forza e personalità.",
-    alcol: '17,8%',
-    serviceTemp: 18,
-    pairings: ['Formaggi stagionati', 'Secondi di carne rossa']
-  },
-  {
-    id: 14,
-    name: "Prosecco Superiore",
-    imageUrl:
-      "https://s.tannico.it/media/catalog/product/cache/1/thumbnail/500x500/0dc2d03fe217f8c83829496872af24a0/p/r/prior_2_2_1_1_1.jpg",
-    price: 14.99,
-    year: "NV (Non Vintage)",
-    category: "bianchi",
-    subcategory: "spumanti",
-        description: "Fresco, giovane e luminoso, il Bianchello del Metauro DOC è ambasciatore di pregio di una regione composita, sia in Italia sia all’estero europeo, statunitense e orientale.È un vino che ha saputo evolversi, trasformando la sua semplicità in un tratto distintivo di forza e personalità.",
-    alcol: '17,8%',
-    serviceTemp: 18,
-    pairings: ['Formaggi stagionati', 'Secondi di carne rossa']
-  },
-  {
-    id: 15,
-    name: "Sauvignon Blanc Marlborough",
-    imageUrl:
-      "https://s.tannico.it/media/catalog/product/cache/1/thumbnail/500x500/0dc2d03fe217f8c83829496872af24a0/1/_/1__0003_hpto14_2haut_perron_touraine_sb_grande_1_1_6_1_1_1_1_1_1.jpg",
-    price: 21.25,
-    year: 2019,
-    category: "bianchi",
-    subcategory: "dolci",
-        description: "Fresco, giovane e luminoso, il Bianchello del Metauro DOC è ambasciatore di pregio di una regione composita, sia in Italia sia all’estero europeo, statunitense e orientale.È un vino che ha saputo evolversi, trasformando la sua semplicità in un tratto distintivo di forza e personalità.",
-    alcol: '17,8%',
-    serviceTemp: 18,
-    pairings: ['Formaggi stagionati', 'Secondi di carne rossa']
-  },
-  {
-    id: 16,
-    name: "Amarone della Valpolicella",
-    imageUrl:
-      "https://s.tannico.it/media/catalog/product/cache/1/thumbnail/500x500/0dc2d03fe217f8c83829496872af24a0/c/o/costasera_9_1_1.jpg",
-    price: 45.0,
-    year: 2016,
-    category: "rossi",
-    subcategory: "tranquilli",
-        description: "Fresco, giovane e luminoso, il Bianchello del Metauro DOC è ambasciatore di pregio di una regione composita, sia in Italia sia all’estero europeo, statunitense e orientale.È un vino che ha saputo evolversi, trasformando la sua semplicità in un tratto distintivo di forza e personalità.",
-    alcol: '17,8%',
-    serviceTemp: 18,
-    pairings: ['Formaggi stagionati', 'Secondi di carne rossa']
-  },
-  {
-    id: 17,
-    name: "Rosé de Provence",
-    imageUrl:
-      "https://s.tannico.it/media/catalog/product/cache/1/thumbnail/500x500/0dc2d03fe217f8c83829496872af24a0/b/a/bandol_1_1_1.jpg",
-    price: 22.95,
-    year: 2021,
-    category: "rosati",
-    subcategory: "tranquilli",
-        description: "Fresco, giovane e luminoso, il Bianchello del Metauro DOC è ambasciatore di pregio di una regione composita, sia in Italia sia all’estero europeo, statunitense e orientale.È un vino che ha saputo evolversi, trasformando la sua semplicità in un tratto distintivo di forza e personalità.",
-    alcol: '17,8%',
-    serviceTemp: 18,
-    pairings: ['Formaggi stagionati', 'Secondi di carne rossa']
-  },
-];
-
 const Shop = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("");
@@ -289,18 +45,29 @@ const Shop = () => {
   const footerRef = useRef(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedProduct, setSelectedProduct] = useState(null);
-  const { addToCart } = useCart(); 
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState(null);
+  const [products, setProducts] = useState([]);
+  const { addToCart, cartItems } = useCart(); 
 
-  const openModalWithProduct = (product) => {
-    setSelectedProduct(product);
-    setIsModalOpen(true);
-  };
-
-  const handleCloseModal = () => {
-    setIsModalOpen(false);
-    setSelectedProduct(null);
-  };
-
+  useEffect(() => {
+    const fetchProducts = async () => {
+      setIsLoading(true);
+      try {
+        const response = await fetch(`https://hunt4taste.it/api/products`);
+        if (!response.ok) {
+          throw new Error('Something went wrong!'); // Error handling
+        }
+        const data = await response.json();
+        setProducts(data);
+      } catch (error) {
+        setError(error.message);
+      }
+      setIsLoading(false);
+    };
+  
+    fetchProducts();
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -316,9 +83,15 @@ const Shop = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const { cartItems } = useCart();
-  const itemCount = cartItems.reduce((total, item) => total + item.quantity, 0);
+  const openModalWithProduct = (product) => {
+    setSelectedProduct(product);
+    setIsModalOpen(true);
+  };
 
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+    setSelectedProduct(null);
+  };
 
   const toggleCartDrawer = (open) => (event) => {
     if (
@@ -333,7 +106,6 @@ const Shop = () => {
   const handleCategoryChange = (value) => {
     if (selectedCategory !== value) {
       setSelectedCategory(value);
-      // Reset subcategory when changing category
       setSelectedSubcategory("");
     } else {
       setSelectedCategory("");
@@ -351,6 +123,8 @@ const Shop = () => {
       (!selectedSubcategory || product.subcategory === selectedSubcategory)
   );
 
+  const itemCount = cartItems.reduce((total, item) => total + item.quantity, 0);
+
   const StyledToggleButtonGroup = styled(ToggleButtonGroup)(({ theme }) => ({
     display: "flex",
     justifyContent: "center",
@@ -358,7 +132,6 @@ const Shop = () => {
     boxShadow: "none",
   }));
 
-  // Style each ToggleButton to look like a separate "pill"
   const StyledToggleButton = styled(ToggleButton)(({ theme }) => ({
     textTransform: "none",
     color: theme.palette.text.primary,
@@ -376,6 +149,14 @@ const Shop = () => {
     borderRadius: "50px",
     padding: theme.spacing(1, 2),
   }));
+
+  if (isLoading) {
+    return <p>Loading products...</p>;
+  }
+
+  if (error) {
+    return <p>{error}</p>;
+  }
 
   return (
     <div className="flex flex-col min-h-screen">
@@ -396,9 +177,7 @@ const Shop = () => {
               {wineCategories.map((category) => (
                 <StyledToggleButton
                   key={category.value}
-                  value={
-                    selectedCategory === category.value ? category.value : ""
-                  }
+                  value={selectedCategory === category.value ? category.value : ""}
                   selected={selectedCategory === category.value}
                   onClick={() => handleCategoryChange(category.value)}
                   aria-label={category.label}
@@ -414,9 +193,7 @@ const Shop = () => {
                   ?.subcategories.map((subcategory) => (
                     <StyledToggleButton
                       key={subcategory}
-                      value={
-                        selectedSubcategory === subcategory ? subcategory : ""
-                      }
+                      value={selectedSubcategory === subcategory ? subcategory : ""}
                       selected={selectedSubcategory === subcategory}
                       onClick={() => handleSubcategoryChange(subcategory)}
                       aria-label={subcategory}
@@ -449,7 +226,7 @@ const Shop = () => {
                 justifyContent: "center",
               }}
             >
-              <ShoppingCartIcon style={{ color: "#ffffff" }} />{" "}
+              <ShoppingCartIcon style={{ color: "#ffffff" }} />
               {itemCount > 0 && (
                 <Badge
                   badgeContent={itemCount}

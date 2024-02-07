@@ -130,7 +130,7 @@ const ProductModal = ({ isOpen, onClose, product, addToCart }) => {
           <StyledImageContainer className="md:w-1/2">
             {/* Immagine del prodotto */}
             <StyledImage
-              src={product.imageUrl}
+              src={product.image_url}
               alt={product.name}
               className="rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300"
             />
@@ -149,11 +149,11 @@ const ProductModal = ({ isOpen, onClose, product, addToCart }) => {
             </div>
             <div className="flex items-center gap-2 font-light">
               <TbTemperature className="w-8 h-8" />
-              <p>Temperatura di servizio: {product.serviceTemp}°C</p>
+              <p>Temperatura di servizio: {product.service_temp}°C</p>
             </div>
             <div className="flex items-center gap-2 font-light">
               <LiaCheeseSolid className="w-8 h-8" />
-              <p>Abbinamenti: {product.pairings.join(", ")}</p>
+              <p>Abbinamenti: {product.pairings}</p>
             </div>
           </div>
         </div>

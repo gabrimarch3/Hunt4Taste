@@ -25,7 +25,7 @@ const ProductCard = ({ product, onProductClick }) => {
       onClick={handleCardClick}
     >
       <img
-        src={product.imageUrl}
+        src={product.image_url}
         alt={product.name}
         className="w-32 h-64 object-cover rounded"
       />

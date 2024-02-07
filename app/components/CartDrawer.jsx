@@ -91,7 +91,7 @@ const CartDrawer = ({ isOpen, toggleDrawer }) => {
               <ListItem key={item.id} className="border-b last:border-b-0">
                 <div className="flex items-center space-x-4">
                   <img
-                    src={item.imageUrl}
+                    src={item.image_url}
                     alt={item.name}
                     className="h-16 w-16 object-cover rounded"
                   />
