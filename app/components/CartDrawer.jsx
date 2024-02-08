@@ -2,6 +2,7 @@
 import React from "react";
 import Drawer from "@mui/material/Drawer";
 import List from "@mui/material/List";
+import Image from "next/image";
 import ListItem from "@mui/material/ListItem";
 import ListItemText from "@mui/material/ListItemText";
 import IconButton from "@mui/material/IconButton";
@@ -90,11 +91,8 @@ const CartDrawer = ({ isOpen, toggleDrawer }) => {
             cartItems.map((item) => (
               <ListItem key={item.id} className="border-b last:border-b-0">
                 <div className="flex items-center space-x-4">
-                  <img
-                    src={item.image_url}
-                    alt={item.name}
-                    className="h-16 w-16 object-cover rounded"
-                  />
+                <Image src={item.image_url} alt={item.name} layout="fixed" width={64} height={64} objectFit="cover" className="h-16 w-16 rounded" />
+
                   <ListItemText
                     primary={item.name}
                     primaryTypographyProps={{ className: "font-semibold" }}

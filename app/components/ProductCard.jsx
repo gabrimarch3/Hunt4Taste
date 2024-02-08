@@ -1,5 +1,6 @@
 "use client";
 import React from "react";
+import Image from "next/image";
 import { useState } from "react";
 import { useCart } from "../context/CartContex";
 import { FaRegHeart } from "react-icons/fa";
@@ -24,11 +25,8 @@ const ProductCard = ({ product, onProductClick }) => {
       className="border rounded-xl shadow-2xl p-4 min-w-10 flex flex-col items-center"
       onClick={handleCardClick}
     >
-      <img
-        src={product.image_url}
-        alt={product.name}
-        className="w-32 h-64 object-cover rounded"
-      />
+      <Image src={product.image_url} alt={product.name} layout="responsive" width={128} height={256} objectFit="cover" className="w-32 h-64 rounded" />
+
       <button
         onClick={handleAddToCartClick}
         className={`bg-[#8B487E] hover:bg-purple-700 text-white font-bold py-2 px-4 rounded-full min-h-[50px] transition-colors duration-300 ${

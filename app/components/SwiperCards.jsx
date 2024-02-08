@@ -5,6 +5,7 @@ import SwiperCore, { Pagination, Scrollbar } from 'swiper';
 import { FaWineBottle } from "react-icons/fa";
 import Skeleton from "@mui/material/Skeleton";
 import Link from "next/link";
+import Image from "next/image";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/scrollbar";
@@ -88,7 +89,8 @@ export default function SwiperCards({ isLoading }) {
     <SwiperSlide key={card.id} className="flex flex-col items-center bg-white rounded-xl overflow-hidden shadow-lg m-2 min-h-[300px]">
       <Link href={`/cards/${card.id}`} legacyBehavior>
         <a className="w-full h-56 object-cover rounded-t-xl">
-          <img src={card.image} alt={card.title} className="w-full h-56 object-cover rounded-t-xl" />
+        <Image src={card.image} alt={card.title} layout="responsive" width={500} height={280} objectFit="cover" className="w-full h-56 rounded-t-xl" />
+
           <div className="px-5 py-3 flex-1 flex flex-col justify-between">
             <div className="flex items-center justify-start space-x-2">
               <FaWineBottle className="text-[#8B487E]" size={24} />

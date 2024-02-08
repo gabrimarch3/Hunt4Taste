@@ -4,6 +4,7 @@ import NavigationHeader from "../components/NavigationHeader";
 import ExperienceCard from "../components/ExperienceCard";
 import Footer from "../components/Footer";
 import Link from "next/link";
+import Image from "next/image";
 
 const Esperienze = () => {
   const [experiences, setExperiences] = useState([]);
@@ -45,11 +46,8 @@ const Esperienze = () => {
               key={experience.id}
             >
               <div className="flex-shrink-0">
-                <img
-                  src={experience.image_url}
-                  alt={experience.title}
-                  className="w-full h-48 object-cover rounded-t-lg"
-                />
+              <Image src={experience.image_url} alt={experience.title} layout="responsive" width={500} height={300} objectFit="cover" className="w-full h-48 rounded-t-lg" />
+
               </div>
               <div className="flex-1 bg-white p-6 flex flex-col justify-between">
                 <h3 className="text-gray-900 text-xl font-semibold mb-3">

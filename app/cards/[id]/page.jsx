@@ -7,6 +7,7 @@ import SwiperCards from "../../components/SwiperCards";
 import Footer from "../../components/Footer";
 import { usePathname, useRouter } from 'next/navigation';
 import { useState, useEffect } from 'react';
+import Image from "next/image";
 
 const images = [
   {
@@ -61,11 +62,13 @@ const WineHouse = (props) => {
             <div className="embla__container">
               {images.map((image) => (
                 <div className="embla__slide" key={image.id}>
-                  <img
-                    className="embla__slide__img rounded-lg transform hover:scale-105 transition-transform duration-500 ease-in-out"
-                    src={image.imageUrl}
-                    alt="Wine selection"
-                  />
+                  <Image
+  className="embla__slide__img rounded-lg transform hover:scale-105 transition-transform duration-500 ease-in-out"
+  src={image.imageUrl}
+  alt="Wine selection"
+  layout="fill"
+  objectFit="cover"
+/>
                 </div>
               ))}
             </div>

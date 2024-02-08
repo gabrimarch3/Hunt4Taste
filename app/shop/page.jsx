@@ -246,7 +246,7 @@ const Shop = () => {
         </div>
 
         {filteredProducts.length === 0 ? (
-          <p>Nessun prodotto trovato per "{searchQuery}"</p>
+          <p>Nessun prodotto trovato per {'"'}{searchQuery}{'"'}</p>
         ) : (
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
             {filteredProducts.map((product) => (

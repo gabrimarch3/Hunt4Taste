@@ -7,6 +7,7 @@ import SwiperCards from "../../components/SwiperCards"; // Assumendo che vuoi mo
 import "swiper/css"; // Assicurati di importare gli stili necessari per Swiper
 import ServicesSection from '../../components/Services';
 import { FaTag , FaEuroSign } from "react-icons/fa";
+import Image from 'next/image';
 
 const ServiceDetailPage = () => {
     const pathname = usePathname();
@@ -44,7 +45,7 @@ const ServiceDetailPage = () => {
     
           <div className="container mx-auto p-6">
             <div className="bg-white shadow-lg rounded-lg overflow-hidden">
-              <img src={service.image} alt={service.title} className="w-full h-64 object-cover object-center" />
+            <Image src={service.image} alt={service.title} layout="responsive" width={500} height={300} objectFit="cover" className="w-full h-64" />
               <div className="p-4 space-y-4">
                 <h2 className="text-3xl font-bold">{service.title}</h2>
                 <p>{service.description}</p>
