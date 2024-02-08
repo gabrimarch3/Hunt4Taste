@@ -1,13 +1,4 @@
-import * as React from "react";
-
-// import { Card, CardContent } from "../../components/ui/card";
-// import {
-//   Carousel,
-//   CarouselContent,
-//   CarouselItem,
-//   CarouselNext,
-//   CarouselPrevious,
-// } from "../../components/ui/carousel";
+import React, { useState, useEffect } from "react";
 import useEmblaCarousel from "embla-carousel-react";
 import "react-loading-skeleton/dist/skeleton.css";
 import "../embla.css";
@@ -23,68 +14,20 @@ import { FaWineBottle } from "react-icons/fa";
 import Skeleton from "react-loading-skeleton";
 import Link from "next/link";
 
-const services = [
-  {
-    id: 1,
-    title: "Degustazioni",
-    image:
-      "https://images.pexels.com/photos/696218/pexels-photo-696218.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-  },
-
-  {
-    id: 2,
-    title: "Corsi",
-    image:
-      "https://images.pexels.com/photos/6481887/pexels-photo-6481887.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-  },
-
-  {
-    id: 3,
-    title: "Esperienze",
-    image:
-      "https://images.pexels.com/photos/19046659/pexels-photo-19046659/free-photo-of-montagne-campo-agricoltura-uva.jpeg?auto=compress&cs=tinysrgb&w=600",
-  },
-
-  {
-    id: 4,
-    title: "Shop",
-    image:
-      "https://images.pexels.com/photos/1058277/pexels-photo-1058277.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-  },
-  {
-    id: 5,
-    title: "Degustazioni",
-    image:
-      "https://images.pexels.com/photos/696218/pexels-photo-696218.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-  },
-
-  {
-    id: 6,
-    title: "Corsi",
-    image:
-      "https://images.pexels.com/photos/6481887/pexels-photo-6481887.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-  },
-
-  {
-    id: 7,
-    title: "Esperienze",
-    image:
-      "https://images.pexels.com/photos/19046659/pexels-photo-19046659/free-photo-of-montagne-campo-agricoltura-uva.jpeg?auto=compress&cs=tinysrgb&w=600",
-  },
-
-  {
-    id: 8,
-    title: "Shop",
-    image:
-      "https://images.pexels.com/photos/1058277/pexels-photo-1058277.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-  },
-];
-
 export default function ServicesSection(props) {
+  const [services, setServices] = useState([]);
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
+  // Utilizzando le proprie di props per slides e options se necessario
   const { slides, options } = props;
   const [emblaRef, emblaApi] = useEmblaCarousel(options);
+
+  useEffect(() => {
+    fetch("https://hunt4taste.it/api/services")
+      .then((response) => response.json())
+      .then((data) => setServices(data))
+      .catch((error) => console.error("Error fetching data: ", error));
+  }, []);
 
   const styles = {
     card: {
@@ -143,11 +86,11 @@ export default function ServicesSection(props) {
           1500: {
             slidesPerView: 8,
             spaceBetween: 200,
-          }
+          },
         }}
         modules={[Scrollbar]}
       >
-        {services.map((item, index) => (
+         {services.length > 0 ? services.map((item, index) => (
           <Box key={index} sx={{ m: 1 }}>
             <SwiperSlide>
               <Box
@@ -168,11 +111,11 @@ export default function ServicesSection(props) {
                   }, // Square size
                   height: {
                     xs: 180,
-                    sm: 180, 
-                    md: 180, 
-                    lg: 200, 
+                    sm: 180,
+                    md: 180,
+                    lg: 200,
                     xl: 280,
-                  },// Square size
+                  }, // Square size
                 }}
               >
                 <Box
@@ -189,15 +132,25 @@ export default function ServicesSection(props) {
               <Typography
                 variant="subtitle1"
                 color="secondary"
-                sx={{ p: 1, textAlign: "left", width: '100%', color: '#7B7C7C'}}
+                sx={{
+                  p: 1,
+                  textAlign: "left",
+                  width: "100%",
+                  color: "#7B7C7C",
+                  overflow: "hidden",
+                  whiteSpace: "nowrap",
+                  textOverflow: "ellipsis",
+                  minWidth: `${item.title.length * 15}px`
+                }}
               >
                 {item.title.toUpperCase()}
               </Typography>
             </SwiperSlide>
           </Box>
-        ))}
+        )): (
+          <Skeleton count={5} />
+        )}
       </Swiper>
     </Box>
   );
 }
-// <p className="pt-3 text-[#8B487E]">{service.title.toUpperCase()}</p>
