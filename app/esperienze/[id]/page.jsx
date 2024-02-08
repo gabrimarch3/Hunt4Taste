@@ -73,7 +73,7 @@ const PrenotaEsperienza = () => {
             </div>
             <div className="flex justify-center items-center">
               <FaEuroSign className="text-[#707070]" />
-              <p className="font-sm text-[#707070] ml-2">{esperienza.cost},00</p>
+              <p className="font-sm text-[#707070] ml-2">{esperienza.cost}</p>
             </div>
           </div>
           <h1 className="text-md text-[#8B487E] font-bold mb-4 mt-4">{esperienza.title}</h1>
