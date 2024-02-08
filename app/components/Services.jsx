@@ -45,14 +45,9 @@ export default function ServicesSection(props) {
   };
 
   return (
-    <Box sx={{ mt: 5, mb: 5, ml: 3 }}>
-      <Typography variant="h6" color="text.secondary" gutterBottom>
-        Servizi
-      </Typography>
+    <Box sx={{ mt: 5, mb: 5, ml: 2 }}>
+   
       <Swiper
-        scrollbar={{
-          hide: true,
-        }}
         className="mySwiper h-full"
         slidesPerView={1}
         spaceBetween={30}
@@ -93,6 +88,7 @@ export default function ServicesSection(props) {
          {services.length > 0 ? services.map((item, index) => (
           <Box key={index} sx={{ m: 1 }}>
             <SwiperSlide>
+            <Link href={`/servizi/${item.id}`} passHref>
               <Box
                 sx={{
                   display: "flex",
@@ -145,10 +141,11 @@ export default function ServicesSection(props) {
               >
                 {item.title.toUpperCase()}
               </Typography>
+              </Link>
             </SwiperSlide>
           </Box>
         )): (
-          <Skeleton count={5} />
+          <Skeleton count={7} />
         )}
       </Swiper>
     </Box>
