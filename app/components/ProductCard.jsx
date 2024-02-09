@@ -31,7 +31,7 @@ const ProductCard = ({ product, onProductClick }) => {
   alt={product.name} 
   layout="responsive" 
   width={128} 
-  height={256} 
+  height={128} 
   objectFit="cover" 
   className="w-32 h-64 rounded"
   style={{ marginBottom: '20px' }} // Aggiungi un margine superiore fisso di 20px
