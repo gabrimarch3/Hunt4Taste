@@ -20,16 +20,6 @@ const ProductCard = ({ product, onProductClick }) => {
   };
 
 
-  const openModalWithProduct = (product) => {
-    setSelectedProduct(product);
-    setIsModalOpen(true);
-  };
-
-  const handleCloseModal = () => {
-    setIsModalOpen(false);
-    setSelectedProduct(null);
-  };
-
   const handleCardClick = () => {
     onProductClick(product);
   };
@@ -48,7 +38,6 @@ const ProductCard = ({ product, onProductClick }) => {
 />
 
 <button
-  onClick={openModalWithProduct}
   className={`bg-[#8B487E] hover:bg-purple-700 text-white font-bold py-2 px-3 rounded-full min-h-[40px] transition-colors duration-300 ${
     added ? "bg-green-500 hover:bg-green-600" : ""
   }`}
@@ -60,7 +49,7 @@ const ProductCard = ({ product, onProductClick }) => {
     fontSize: "0.9rem",
   }}
 >
-  {added ? "Aggiunto al carrello" : "Scopri di più"}
+  {"Scopri di più"}
 </button>
       
       <h3 className="text-gray-700 font-medium text-center mt-2">{product.name}</h3>
@@ -72,7 +61,6 @@ const ProductCard = ({ product, onProductClick }) => {
 
       <ProductModal 
         isOpen={isModalOpen} 
-        onClose={handleCloseModal} 
         product={selectedProduct} 
         addToCart={addToCart}
       />
