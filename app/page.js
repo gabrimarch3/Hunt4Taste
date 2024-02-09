@@ -16,7 +16,12 @@ export default function Home() {
           <SwiperCards />
         </div>
       </div>
+      <div className="pt-10 bg-transparent">
+        <h3 className="ml-3 pl-3 pb-3 font-bold text-[#7B7C7C]">SERVIZI</h3>
+        <div className="pl-3 overflow-hidden max-w-full">
       <Services />
+        </div>
+      </div>
       <SubscriptionForm />
       <Footer />
     </>

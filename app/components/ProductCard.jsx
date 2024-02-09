@@ -21,21 +21,37 @@ const ProductCard = ({ product, onProductClick }) => {
   };
 
   return (
-    <div
-      className="border rounded-xl shadow-2xl p-4 min-w-10 flex flex-col items-center"
-      onClick={handleCardClick}
-    >
-      <Image src={product.image_url} alt={product.name} layout="responsive" width={128} height={256} objectFit="cover" className="w-32 h-64 rounded" />
+    <div className="border rounded-xl shadow-2xl p-4 min-w-10 flex flex-col items-center" onClick={handleCardClick}>
+      <Image 
+  src={product.image_url} 
+  alt={product.name} 
+  layout="responsive" 
+  width={128} 
+  height={256} 
+  objectFit="cover" 
+  className="w-32 h-64 rounded"
+  style={{ marginBottom: '20px' }} // Aggiungi un margine superiore fisso di 20px
+/>
 
-      <button
-        onClick={handleAddToCartClick}
-        className={`bg-[#8B487E] hover:bg-purple-700 text-white font-bold py-2 px-4 rounded-full min-h-[50px] transition-colors duration-300 ${
-          added ? "bg-green-500 hover:bg-green-600" : ""
-        }`}
-      >
-        {added ? "Aggiunto al carrello" : product.name}
-      </button>
-      <div className="text-gray-500 text-sm flex flex-col justify-center items-center w-full mt-2">
+<button
+  onClick={handleAddToCartClick}
+  className={`bg-[#8B487E] hover:bg-purple-700 text-white font-bold py-2 px-3 rounded-full min-h-[40px] transition-colors duration-300 ${
+    added ? "bg-green-500 hover:bg-green-600" : ""
+  }`}
+  style={{ 
+    borderWidth: "1px",
+    borderStyle: "solid",
+    borderColor: "#8B487E",
+    boxShadow: "0 2px 4px rgba(0, 0, 0, 0.1)",
+    fontSize: "0.9rem",
+  }}
+>
+  {added ? "Aggiunto al carrello" : "Scopri di più"}
+</button>
+      
+      <h3 className="text-gray-700 font-medium text-center mt-2">{product.name}</h3>
+      
+      <div className="text-gray-500 text-sm flex flex-col justify-center items-center w-full">
         <span className="font-medium">{product.year}</span>
         <span className="mt-1 font-light">€{product.price}</span>
       </div>

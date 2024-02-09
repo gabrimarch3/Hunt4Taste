@@ -8,7 +8,7 @@ const config = {
   reactStrictMode: true,
   swcMinify: true,
   images: {
-    domains: ['images.pexels.com', 'www.cignano.com', 'firebasestorage.googleapis.com'],
+    domains: ['images.pexels.com', 'www.cignano.com', 'firebasestorage.googleapis.com', 'hunt4taste.it'],
   },
   eslint: {
     ignoreDuringBuilds: true,
