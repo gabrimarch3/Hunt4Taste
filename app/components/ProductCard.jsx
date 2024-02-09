@@ -1,6 +1,7 @@
 "use client";
 import React from "react";
 import Image from "next/image";
+import ProductModal from "./ProductModal";
 import { useState } from "react";
 import { useCart } from "../context/CartContex";
 import { FaRegHeart } from "react-icons/fa";
@@ -8,12 +9,25 @@ import { FaRegHeart } from "react-icons/fa";
 const ProductCard = ({ product, onProductClick }) => {
   const { addToCart } = useCart();
   const [added, setAdded] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedProduct, setSelectedProduct] = useState(null);
 
   const handleAddToCartClick = (e) => {
     e.stopPropagation(); // Impedisce al click di propagarsi al div genitore
     addToCart(product);
     setAdded(true);
     setTimeout(() => setAdded(false), 2000); // Resetta lo stato dopo 2 secondi
+  };
+
+
+  const openModalWithProduct = (product) => {
+    setSelectedProduct(product);
+    setIsModalOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+    setSelectedProduct(null);
   };
 
   const handleCardClick = () => {
@@ -34,7 +48,7 @@ const ProductCard = ({ product, onProductClick }) => {
 />
 
 <button
-  onClick={handleAddToCartClick}
+  onClick={openModalWithProduct}
   className={`bg-[#8B487E] hover:bg-purple-700 text-white font-bold py-2 px-3 rounded-full min-h-[40px] transition-colors duration-300 ${
     added ? "bg-green-500 hover:bg-green-600" : ""
   }`}
@@ -55,7 +69,16 @@ const ProductCard = ({ product, onProductClick }) => {
         <span className="font-medium">{product.year}</span>
         <span className="mt-1 font-light">€{product.price}</span>
       </div>
+
+      <ProductModal 
+        isOpen={isModalOpen} 
+        onClose={handleCloseModal} 
+        product={selectedProduct} 
+        addToCart={addToCart}
+      />
     </div>
+
+    
   );
 };
 
