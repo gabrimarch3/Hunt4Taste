@@ -1,4 +1,5 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
+import axios from 'axios';
 import Box from '@mui/material/Box';
 import Drawer from '@mui/material/Drawer';
 import IconButton from '@mui/material/IconButton';
@@ -20,13 +21,27 @@ import { FaFacebookF, FaInstagram, FaTwitter, FaYoutube } from 'react-icons/fa';
 
 
 const HamburgerMenu = () => {
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = useState(false);
+  const [sections, setSections] = useState([]);
+
+  useEffect(() => {
+    const fetchSections = async () => {
+      try {
+        const response = await axios.get('https://hunt4taste.it/api/sections');
+        console.log(response);
+        setSections(response.data);
+      } catch (error) {
+        console.error('Error fetching sections:', error);
+      }
+    };
+
+    fetchSections();
+  }, []);
 
   const toggleDrawer = (open) => (event) => {
     if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
       return;
     }
-
     setOpen(open);
   };
 
@@ -81,6 +96,20 @@ const HamburgerMenu = () => {
     </ListItem>
   ))}
   </List>
+  <hr />
+  <List>
+          {sections.map((section, index) => (
+            <ListItem key={section.id} disablePadding>
+              <Link href={`/sections/${section.slug}`} passHref>
+                <ListItemButton>
+                  {/* Use `dangerouslySetInnerHTML` to render the icon */}
+                  <i className={section.icon} dangerouslySetInnerHTML={{ __html: '' }} />
+                  <ListItemText primary={section.title} />
+                </ListItemButton>
+              </Link>
+            </ListItem>
+          ))}
+        </List>
   {/* Footer Section */}
   <div className="mt-auto w-full self-end bg-[#924F85] text-white p-4">
     <p className="text-lg font-bold text-center mb-4">Seguici sui social!</p>
