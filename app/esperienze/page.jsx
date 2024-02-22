@@ -11,7 +11,7 @@ const Esperienze = () => {
   const [isLoading, setIsLoading] = useState(true); // Adding a loading state
 
   useEffect(() => {
-    fetch("https://hunt4taste.it/api/experiences")
+    fetch("https://hunt4taste.it/api/experiences/list/user/1")
       .then((response) => response.json())
       .then((data) => {
         setExperiences(data);

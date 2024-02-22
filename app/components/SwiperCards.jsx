@@ -20,10 +20,13 @@ export default function SwiperCards({ isLoading }) {
     if (!isLoading) {
       fetch("https://hunt4taste.it/api/cards")
         .then((response) => response.json())
-        .then((data) => setCards(data))
+        .then((data) => {
+            const filteredCards = data.filter(card => card.user_id === 1);
+            setCards(filteredCards);
+        })
         .catch((error) => console.error("Errore nella chiamata API:", error));
     }
-  }, [isLoading]);
+}, [isLoading]);
 
   return (
     <Swiper

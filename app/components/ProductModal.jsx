@@ -15,10 +15,10 @@ import { TbTemperature } from "react-icons/tb";
 const StyledDialog = styled(Dialog)(({ theme }) => ({
   "& .MuiPaper-root": {
     backgroundColor: "#fff",
-    borderRadius: "15px",
-    boxShadow: "0 12px 28px rgba(0, 0, 0, 0.25)",
+    borderRadius: theme.shape.borderRadius,
+    boxShadow: theme.shadows[5],
     overflow: "visible",
-    transition: "all 0.3s",
+    transition: "all 0.3s ease-in-out",
   },
 }));
 
@@ -29,12 +29,17 @@ const StyledDialogTitle = styled(DialogTitle)(({ theme }) => ({
   display: "flex",
   justifyContent: "space-between",
   alignItems: "center",
-  position: "relative",
+  '& h2': {
+    fontSize: theme.typography.h6.fontSize,
+    fontWeight: theme.typography.fontWeightRegular,
+  },
 }));
 
 const StyledDialogContent = styled(DialogContent)(({ theme }) => ({
-  marginTop: "15px",
-  padding: theme.spacing(2),
+  padding: theme.spacing(3),
+  "&:first-child": {
+    paddingTop: theme.spacing(2),
+  },
   color: "#444",
   "& p": {
     margin: theme.spacing(1, 0),
@@ -43,26 +48,22 @@ const StyledDialogContent = styled(DialogContent)(({ theme }) => ({
 
 const StyledDialogActions = styled(DialogActions)(({ theme }) => ({
   padding: theme.spacing(1),
-  justifyContent: "flex-end",
-  background: "#f8f8f8",
-  transition: "background-color 0.3s",
-  display: "flex",
   justifyContent: "center",
+  "& .MuiButton-root": {
+    margin: theme.spacing(1),
+  },
 }));
 
 const StyledButton = styled(Button)(({ theme }) => ({
-  color: "#8B487E",
+  backgroundColor: "#c5b473",
+  color: "white",
   fontWeight: "bold",
-  width: "70%",
-  margin: theme.spacing(1),
   "&:hover": {
-    backgroundColor: "#863854",
-    color: "white",
-    transform: "scale(1.05)",
+    backgroundColor: "#b3a369",
   },
-  transition: "transform 0.2s, background-color 0.3s",
-  display: "flex",
-  alignItems: "center",
+  transition: "background-color 0.3s ease-in-out",
+  padding: theme.spacing(1, 4),
+  borderRadius: theme.shape.borderRadius,
 }));
 
 const flagIcons = {
@@ -200,7 +201,7 @@ const ProductModal = ({ isOpen, onClose, product, addToCart }) => {
       <StyledDialogActions>
         <StyledButton
           style={{
-            backgroundColor: "#c5b473",
+            backgroundColor: "#c5b473", 
             color: "white",
             width: "80%",
             boxShadow: "0 2px 5px rgba(0, 0, 0, 0.3)",

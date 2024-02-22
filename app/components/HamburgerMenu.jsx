@@ -24,19 +24,19 @@ const HamburgerMenu = () => {
   const [open, setOpen] = useState(false);
   const [sections, setSections] = useState([]);
 
-  useEffect(() => {
-    const fetchSections = async () => {
-      try {
-        const response = await axios.get('https://hunt4taste.it/api/sections');
-        console.log(response);
-        setSections(response.data);
-      } catch (error) {
-        console.error('Error fetching sections:', error);
-      }
-    };
+  // useEffect(() => {
+  //   const fetchSections = async () => {
+  //     try {
+  //       const response = await axios.get('https://hunt4taste.it/api/sections/list/user/1');
+  //       console.log(response);
+  //       setSections(response.data);
+  //     } catch (error) {
+  //       console.error('Error fetching sections:', error);
+  //     }
+  //   };
 
-    fetchSections();
-  }, []);
+  //   fetchSections();
+  // }, []);
 
   const toggleDrawer = (open) => (event) => {
     if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {

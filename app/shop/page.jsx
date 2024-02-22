@@ -58,7 +58,7 @@ const Shop = () => {
     const fetchProducts = async () => {
       setIsLoading(true);
       try {
-        const response = await axios.get("https://hunt4taste.it/api/products");
+        const response = await axios.get("https://hunt4taste.it/api/products/list/user/1");
         setProducts(response.data);
       } catch (error) {
         setError(error.message);

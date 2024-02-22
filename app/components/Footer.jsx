@@ -124,12 +124,6 @@ const Footer = () => {
           className="cursor-pointer"
           onClick={() => router.push("/shop")}
         />
-        <BottomNavigationAction
-          label="Territorio"
-          icon={<ForestOutlinedIcon style={{ color: "#924F85" }} />}
-          className="cursor-pointer"
-          onClick={() => router.push("/")}
-        />
         {!isPWAInstalled && (
           <BottomNavigationAction
             label="Installa ora"

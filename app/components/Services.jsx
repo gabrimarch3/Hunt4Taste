@@ -23,7 +23,7 @@ export default function ServicesSection(props) {
   const [emblaRef, emblaApi] = useEmblaCarousel(options);
 
   useEffect(() => {
-    fetch("https://hunt4taste.it/api/services")
+    fetch("https://hunt4taste.it/api/services/list/user/1")
       .then((response) => response.json())
       .then((data) => setServices(data))
       .catch((error) => console.error("Error fetching data: ", error));
