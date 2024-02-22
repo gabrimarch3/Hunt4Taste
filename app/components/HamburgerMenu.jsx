@@ -47,10 +47,9 @@ const HamburgerMenu = () => {
 
   const menuItems = [
     { text: 'Home', href: '/', icon: <HomeIcon /> },
-    { text: 'Servizi', href: '/wine-house', icon: <WineBarIcon /> },
     { text: 'Esperienze', href: '/esperienze', icon: <ExperienceIcon /> },
     { text: 'Shop', href: '/shop', icon: <ShopIcon /> },
-    { text: 'Contatti', href: '/contatti', icon: <ContactIcon /> },
+    { text: 'Contatti', href: '/', icon: <ContactIcon /> },
   ];
 
   return (
